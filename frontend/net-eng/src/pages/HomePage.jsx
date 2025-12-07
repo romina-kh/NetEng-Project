@@ -1,15 +1,21 @@
 import React from "react";
 import Footer from "../components/homePage/footer";
+import NavBar from "../components/homePage/Navbar";
 
 export default function HomePage() {
   return (
-    <div className="page-container">
-      <div className="content-wrap">
-        {/* contents */}
-        <h1 style={{textAlign:"center", marginTop:"50px"}}>This is Home Page</h1>
-      </div>
+    <>
+      <NavBar />
+      <div className="page-container">
+        <div className="content-wrap">
+          {/* contents */}
+          <h1 style={{ textAlign: "center", marginTop: "50px" }}>
+            This is Home Page
+          </h1>
+        </div>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </>
   );
 }
