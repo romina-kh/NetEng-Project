@@ -1,17 +1,68 @@
 import React from "react";
 import "../../styles/homePage/footer.css";
+import logo from "../../assets/logo.png";
+import instagram from "../../assets/instagram.png";
+import linkdin from "../../assets/linkedin.png";
+import x from "../../assets/x.png";
+import telegram from "../../assets/telegram.png";
 
 export default function Footer() {
   return (
     <footer id="contact" className="footer">
-
       <div className="footer-grid">
 
-        {/* Left Column */}
+        {/* right Column */}
+        <div className="footer-col">
+          <img src={logo} alt="logo" className="footer-logo" />
+
+          <p className="footer-text">
+            تک‌یار همراه مطمئن شما در خرید لوازم الکترونیکی و تجهیزات تکنولوژی.
+            <br />ما با ارائه محصولات اورجینال، قیمت مناسب و پشتیبانی واقعی،
+            تجربه خریدی هوشمندانه را برایتان می‌سازیم.
+          </p>
+
+          <div className="social-box">
+            <img src={instagram} alt="instagram" className="footer-icon" />
+            <img src={telegram} alt="telegram" className="footer-icon" />
+            <img src={x} alt="x" className="footer-icon" />
+            <img src={linkdin} alt="linkdin" className="footer-icon" />
+          </div>
+        </div>
+
+
+        {/* Mid Column */}
+        <div className="footer-col">
+          <h2>راه‌های ارتباطی</h2>
+
+          <strong>آدرس:</strong>
+          <p className="footer-text">
+            تهران، خیابان شریعتی، کوچه ۱۲، ساختمان تک‌یار، طبقه ۳
+          </p>
+
+          <strong>
+            شماره موبایل: <a href="tel:09123456789">09123456789</a>
+          </strong>
+          <br />
+
+          <strong>
+            شماره تلفن: <a href="tel:02112345678">021-12345678</a>
+          </strong>
+
+          <ul className="footer-links">
+            <li>
+              ایمیل:{" "}
+              <a href="mailto:techyar.shop@gmail.com">
+                techyar.shop@gmail.com
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        {/* left Column */}
+  
         <div className="footer-col">
           <h2>عضویت در خبرنامه</h2>
 
-          {/* باکس ورود آدرس ایمیل و دکمه ثبت */}
           <div className="newsletter-box">
             <input
               type="email"
@@ -21,53 +72,14 @@ export default function Footer() {
             <button className="newsletter-btn">ثبت</button>
           </div>
 
-          <p className="footer-text">متنی در رابطه با عضویت در خبرنامه سایت</p>
-        </div>
-
-        {/* Mid Column */}
-        <div className="footer-col">
-          <h2>راه های ارتباطی</h2>
-
-          <strong>آدرس:</strong>
-          <p>شهر ... خیابان ... کوچه ... ساختمان ...</p>
-
-          <strong>
-            شماره موبایل: <a href="tel:09123456789">09123456789</a>
-          </strong>
-          <br />
-          <strong>
-            شماره تلفن: <a href="tel:123456789">123-456-789</a>
-          </strong>
-
-          <ul className="footer-links">
-            <li>
-              ایمیل:{" "}
-              <a href="mailto:email@gmail.com">
-                email@gmail.com
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        {/* Right Column */}
-        <div className="footer-col">
-          <h2>نام و لوگو شرکت</h2>
-          <p>
-            توضیحات ... <br />
+          <p className="footer-text">
+            با عضویت در خبرنامه تک‌یار، جدیدترین محصولات، تخفیف‌های ویژه و پیشنهادهای تکنولوژی را زودتر از همه دریافت کنید.
           </p>
-
-          {/* pics of social media */}
-          <div className="social-box">
-            {/* icons photo */}
-            <strong>// عکس لوگو شبکه های اجتماعی</strong>
-          </div>
         </div>
 
       </div>
 
-      <div className="footer-divider"></div>
-
-      <p className="footer-copy">© 2025 My Website. All rights reserved..</p>
+      <p className="footer-copy">© 2025 TechYar. All rights reserved.</p>
     </footer>
   );
 }
