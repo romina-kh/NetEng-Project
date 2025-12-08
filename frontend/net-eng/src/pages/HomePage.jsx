@@ -1,6 +1,7 @@
 import React from "react";
 import Footer from "../components/homePage/footer";
 import NavBar from "../components/homePage/Navbar";
+import Collaborate from "../components/homePage/Collaborate"
 
 export default function HomePage() {
   return (
@@ -12,6 +13,7 @@ export default function HomePage() {
           <h1 style={{ textAlign: "center", marginTop: "50px" }}>
             This is Home Page
           </h1>
+        <Collaborate />
         </div>
 
         <Footer />
