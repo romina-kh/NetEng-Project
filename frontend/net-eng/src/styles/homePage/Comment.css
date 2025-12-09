@@ -1,0 +1,55 @@
+@font-face {
+  font-family: boxicons;
+  font-weight:400;
+  font-style:normal;
+  src:url(../fonts/boxicons.eot);
+  src:url(../fonts/boxicons.eot) format('embedded-opentype'),
+  url(../fonts/boxicons.woff2) format('woff2'),
+  url(../fonts/boxicons.woff) format('woff'),
+  url(../fonts/boxicons.ttf) format('truetype'),
+  url(../fonts/boxicons.svg?#boxicons) format('svg')
+}
+
+.comments{
+    margin: 100px auto 100px;
+    height: 350px;
+    width: 62%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.comment-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.comment-box{
+    text-align: right;
+    width: 300px;
+    height: 250px;
+    box-shadow: 1px 2px 11px 4px rgb(14 55 54 / 15%);
+    padding: 3px;
+    border-bottom: 7px solid #4527A0;
+    border-radius: 0.5rem;
+    position: relative;
+}
+
+.comment{
+    width: 80%;
+    margin: 15px auto;
+}
+
+.comment h4{
+    position: absolute;
+    bottom: 20px;
+}
+
+.quote::before{
+    font-size: 40px;
+    font-family:'Franklin Gothic Medium';
+    content: "\201C";
+    color: #4527A0;
+}
