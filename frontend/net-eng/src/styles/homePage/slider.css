@@ -1,0 +1,57 @@
+
+.slider-container {
+  width: 100%;
+  max-width: 1300px;
+  margin: 20px auto;
+  margin-top: 100px;  /*i should change it!*/
+  padding: 0 16px;
+}
+
+.slider-img {
+  width: 100%;
+  height: 420px;      
+  object-fit: cover;   
+  border-radius: 12px;
+}
+
+
+@media (max-width: 992px) {
+  .slider-img {
+    height: 300px;
+  }
+}
+
+
+@media (max-width: 600px) {
+  .slider-img {
+    height: 220px;
+  }
+}
+
+
+.slick-dots li button:before {
+  font-size: 15px;
+  color: #777;
+  opacity: 0.7;
+}
+
+.slick-dots li.slick-active button:before {
+  color: #333;
+  opacity: 1;
+}
+
+
+.slick-prev:before,
+.slick-next:before {
+  color: #333 !important;
+  font-size: 30px !important;
+  opacity: 0.8;
+}
+
+.slick-prev {
+  left: 5px;
+}
+
+.slick-next {
+  right: 5px;
+}
