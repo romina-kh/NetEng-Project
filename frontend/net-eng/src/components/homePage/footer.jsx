@@ -21,12 +21,7 @@ export default function Footer() {
             تجربه خریدی هوشمندانه را برایتان می‌سازیم.
           </p>
 
-          <div className="social-box">
-            <img src={instagram} alt="instagram" className="footer-icon" />
-            <img src={telegram} alt="telegram" className="footer-icon" />
-            <img src={x} alt="x" className="footer-icon" />
-            <img src={linkdin} alt="linkdin" className="footer-icon" />
-          </div>
+          
         </div>
 
 
@@ -39,16 +34,13 @@ export default function Footer() {
             تهران، خیابان شریعتی، کوچه ۱۲، ساختمان تک‌یار، طبقه ۳
           </p>
 
-          <strong>
-            شماره موبایل: <a href="tel:09123456789">09123456789</a>
-          </strong>
-          <br />
-
-          <strong>
-            شماره تلفن: <a href="tel:02112345678">021-12345678</a>
-          </strong>
-
           <ul className="footer-links">
+            <li>
+               شماره موبایل: <a href="tel:09123456789">09123456789</a>
+            </li>
+            <li>
+               شماره تلفن: <a href="tel:02112345678">021-12345678</a>
+            </li>
             <li>
               ایمیل:{" "}
               <a href="mailto:techyar.shop@gmail.com">
@@ -75,6 +67,12 @@ export default function Footer() {
           <p className="footer-text">
             با عضویت در خبرنامه تک‌یار، جدیدترین محصولات، تخفیف‌های ویژه و پیشنهادهای تکنولوژی را زودتر از همه دریافت کنید.
           </p>
+          <div className="social-box">
+            <img src={instagram} alt="instagram" className="footer-icon" />
+            <img src={telegram} alt="telegram" className="footer-icon" />
+            <img src={x} alt="x" className="footer-icon" />
+            <img src={linkdin} alt="linkdin" className="footer-icon" />
+          </div>
         </div>
 
       </div>
