@@ -2,7 +2,8 @@
     width: 50%;
     height: 300px;
     margin: 10px auto;
-    background-color: #EEEEEE;
+    /* background-color: #EEEEEE; */
+    background-color: #FAFAFA;
     box-shadow: 3px 3px 4px 2px #BDBDBD;
     border-radius: 5px;
     text-align: center;
@@ -39,24 +40,30 @@
 .colab-container input{
     width: 90%;
     height: 35px;
-    background-color: #512DA8;
-    color: white;
+    /* background-color: #512DA8; */
+    background-color: #F1EFEC;
+    color: black;
     text-align: right;
     font-size: 14px;
     padding: 4px 6px;
-    border-radius: 15px;
+    border-radius: 4px;
 }
 
 .colab-container input:focus{
-    outline: 2px solid #FFD54F;
+    /* outline: 2px solid #FFD54F; */
+    outline: 1px solid #757575;
+
 }
 
 #text-box{
     width: 100%;
-    background-color: #512DA8;
-    color: white;
+    color: black;
     text-align: right; 
     font-size: 14px;
     padding: 4px 6px;  
-    border-radius: 15px;
+    border-radius: 4px;
 }
+
+input::placeholder{
+    color: #757575;
+} 
