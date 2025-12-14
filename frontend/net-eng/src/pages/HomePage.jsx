@@ -14,10 +14,10 @@ export default function HomePage() {
       <Slider />
       <div className="page-container">
         <div className="content-wrap">
-        <Collaborate />
         <TeamSection />
         <Comments />
         </div>
+        <Collaborate />
 
         <Footer />
       </div>
