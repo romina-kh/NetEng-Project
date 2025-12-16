@@ -4,6 +4,13 @@
   font-family: 'Vazirmatn';
 }
 
+body{
+  background: url("./assets/background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* background-position: center; */
+}
+
 .page-container {
   display: flex;
   flex-direction: column;
