@@ -2,6 +2,7 @@
     width: 50%;
     height: 300px;
     margin: 10px auto;
+    margin-bottom: 100px;
     /* background-color: #EEEEEE; */
     background-color: #FAFAFA;
     box-shadow: 3px 3px 4px 2px #BDBDBD;
@@ -28,7 +29,7 @@
     justify-content: space-between;
 }
 
-.form{
+.form-collaborate{
     width: 90%;
     margin: 0px auto;
     display: flex;
