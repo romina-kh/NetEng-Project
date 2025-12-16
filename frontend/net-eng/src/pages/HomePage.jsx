@@ -5,6 +5,7 @@ import Collaborate from "../components/homePage/Collaborate"
 import Comments from "../components/homePage/Comments";
 import Slider from "../components/homePage/slider"
 import TeamSection from "../components/homePage/TeamSection";
+import Products from "../components/homePage/product"
 
 
 export default function HomePage() {
@@ -12,15 +13,12 @@ export default function HomePage() {
     <>
       <NavBar />
       <Slider />
-      <div className="page-container">
-        <div className="content-wrap">
+      <Products />
         <TeamSection />
         <Comments />
-        </div>
         <Collaborate />
 
         <Footer />
-      </div>
     </>
   );
 }
