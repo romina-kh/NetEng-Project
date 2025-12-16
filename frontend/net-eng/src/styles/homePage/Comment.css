@@ -26,8 +26,8 @@
 }
 
 .comment-box:hover{
-    transform: translateY(3px);
-    transition: 0.15s;
+    transform: translateY(5px);
+    transition: 0.4s;
     transition-delay: 0.05s;
 }
 
