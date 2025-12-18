@@ -13,7 +13,6 @@ function SignupPage(){
                     <input type="password" required placeholder="رمز عبور"/>
                     <button>ثبت</button>
                     <p>ثبت نام کرده اید؟ <a href="/login">ورود</a> </p>
-                    
                 </div>
             </div>
         </div>

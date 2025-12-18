@@ -3,7 +3,7 @@
   font-family: "Vazirmatn", sans-serif;
 }
 
-body {
+/* body {
   margin: 0;
   background: #F1EFEC;
   color: #030303;
@@ -19,10 +19,20 @@ body {
   --accent-gold: #FFD277;
   --accent-blue: #4AA3FF;
   --accent-purple: #7F5AF0;
-}
+} */
 
 
 .container {
+  --bg-main: #F1EFEC;
+  --bg-soft: #D4C9BE;
+  --dark: #030303;
+  --primary: #123458;
+
+  --accent-gold: #FFD277;
+  --accent-blue: #4AA3FF;
+  --accent-purple: #7F5AF0;
+  background: #F1EFEC;
+  color: #030303;
   position: relative;
   width: 100%;
   height: 100vh;

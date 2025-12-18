@@ -3,13 +3,6 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
-    /* background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('../../assets/background.png');
-    background-repeat: no-repeat;
-    background-size: cover; */
-
-    /* background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('../../assets/background.png');
-    background-repeat: no-repeat;
-    background-size: cover; */
 }
 
 .container{
@@ -33,7 +26,7 @@
     justify-content: space-between;
 }
 
-input{
+.form input{
     direction: rtl;
     height: 35px;
     padding: 4px;
@@ -42,17 +35,17 @@ input{
     border: 2px solid rgba(128, 128, 128, .4);
 }
 
-input::placeholder{
+.form input::placeholder{
     color: #829098;
     direction: rtl;
 
 }
 
-input:focus{
+.form input:focus{
     outline: 1px solid #757575;
 }
 
-button{
+.form button{
     margin-top: 20px;
     height: 35px;
     padding: 4px;
@@ -63,16 +56,16 @@ button{
     cursor: pointer;
 }
 
-button:hover{
+.form button:hover{
     background-color: #071952;
     transition: 0.3s;
 }
 
-p{
+.form p{
     margin-top: -10px;
     font-size: 13px;
 }
 
-a{
+.form a{
     text-decoration: none;
 }
