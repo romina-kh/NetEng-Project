@@ -14,6 +14,7 @@ export default function Login() {
             <input type="password" placeholder="رمز عبور" />
 
             <button className={styles.loginBtn}>ورود</button>
+            <p>ثبت نام نکرده اید؟ <a href="/signup">ورود</a> </p>
         </div>
         </div>
   );
