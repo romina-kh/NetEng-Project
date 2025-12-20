@@ -1,16 +1,21 @@
 .wrapper{
     width: 50%;
     height: 300px;
-    margin: 10px auto;
+    margin: 20px auto;
     margin-bottom: 100px;
+    padding: 15px 0;
     /* background-color: #EEEEEE; */
     background-color: #FAFAFA;
-    box-shadow: 3px 3px 4px 2px #BDBDBD;
-    border-radius: 5px;
+    box-shadow: 3px 3px 4px 5px #BDBDBD;
+    border-radius: 10px;
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content:space-around;
+}
+
+.wrapper h3{
+    color:#4978aa;
 }
 
 .colab-container{
@@ -54,10 +59,12 @@
 
 .colab-container input:focus{
 
-  border-color: #77530a;
-  box-shadow: 0 0 0 2px rgba(150, 101, 2, 0.25);
+  border-color: #183B4E;
+  box-shadow: 0 0 0 0.2rem rgba(39, 84, 138, 0.115);
 
 }
+
+
 
 #text-box{
     width: 100%;
@@ -65,12 +72,12 @@
     text-align: right; 
     font-size: 14px;
     padding: 4px 6px;  
-    border-radius: 4px;
+    border-radius: 17px;
 }
 
 #text-box:focus{
-    border-color: #183B4E;
-  box-shadow: 0 0 0 0.2rem rgba(39, 84, 138, 0.25);
+  border-color: #183B4E;
+  box-shadow: 0 0 0 0.2rem rgba(39, 84, 138, 0.115);
 }
 
 input::placeholder{
@@ -78,3 +85,6 @@ input::placeholder{
 } 
 
 
+input:active {
+  transform: scale(1.05);
+}
