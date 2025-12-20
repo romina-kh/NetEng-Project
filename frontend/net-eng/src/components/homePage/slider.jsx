@@ -4,9 +4,10 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import slide1 from "../../assets/slide1.png";
-import slide2 from "../../assets/slide2.png";
-import slide3 from "../../assets/slide3.png";
+import slide1 from "../../assets/1.png";
+import slide2 from "../../assets/2.png";
+import slide3 from "../../assets/3.png";
+
 import "../../styles/homePage/slider.css";
 
 export default function MySlider() {
