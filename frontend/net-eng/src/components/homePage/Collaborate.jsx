@@ -10,16 +10,16 @@ function Collaborate(){
             <div className="colab-container">
                 <div className="inner-container">
                     <div className="form-collaborate">
-                        <input placeholder="نام خانوادگی" type="text" />
                         <input placeholder="*نام" type="text" />
+                        <input placeholder="*نام خانوادگی" type="text" />
                     </div>
                     <div className="form-collaborate">
-                        <input placeholder="آدرس ایمیل" type="text" />
                         <input placeholder="*شماره موبایل" type="text" />
+                        <input placeholder="آدرس ایمیل" type="text" />
                     </div>
                     <div className="form-collaborate">
-                        <input placeholder="نوع درخواست" type="text" />
                         <input placeholder="نام شرکت" type="text" />
+                        <input placeholder="نوع درخواست" type="text" />
                     </div>
                     <div className="form-collaborate">
                         <input id="text-box" placeholder="متن درخواست" type="text" />
