@@ -19,7 +19,12 @@ function Collaborate(){
                     </div>
                     <div className="form-collaborate">
                         <input placeholder="نام شرکت" type="text" />
-                        <input placeholder="نوع درخواست" type="text" />
+                        <select name="" id="">
+                            <option value="">نوع درخواست</option>
+                            <option value="">پشتیبانی</option>
+                            <option value="">همکاری</option>
+                            <option value="">فروش</option>
+                        </select>
                     </div>
                     <div className="form-collaborate">
                         <input id="text-box" placeholder="متن درخواست" type="text" />
