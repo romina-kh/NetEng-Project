@@ -5,6 +5,7 @@ import Collaborate from "../components/homePage/Collaborate"
 import Comments from "../components/homePage/Comments";
 import Slider from "../components/homePage/slider"
 import CompanyIntro from "../components/homePage/CompanyIntro";
+import StatsSection from "../components/homePage/StatsSection";
 import TeamSection from "../components/homePage/TeamSection";
 import Products from "../components/homePage/product"
 
@@ -16,6 +17,7 @@ export default function HomePage() {
       <Slider />
       <Products />
         <CompanyIntro />
+        <StatsSection />
         <TeamSection />
         <Comments />
         <Collaborate />
