@@ -1,5 +1,5 @@
 import React from "react";
-import "./CompanyIntro.css";
+import "../../styles/homePage/CompanyIntro.css";
 
 import introImage from "../../assets/company/intro.png";
 import amazonLogo from "../../assets/company/amazon.png";
