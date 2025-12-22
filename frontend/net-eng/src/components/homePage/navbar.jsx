@@ -1,15 +1,51 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../styles/homePage/navbar.css";
 
 function NavBar() {
+  // State to manage the open/close status of the menu
+  const [isOpen, setIsOpen] = useState(false);
+
+  // Function to toggle menu
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <div className="navbar">
       <div className="nav">
-        <div className="left-nav">
-          <a href=""><h3>ورود / ثبت نام</h3></a>
-          <a href=""><h3>محصولات / خدمات</h3></a>
-          <a href=""><h3>درباره ما</h3></a>
-          <a href=""><h3>تماس با ما</h3></a>
+        {/* Hamburger Menu Icon (Visible only on mobile) */}
+        <div className="hamburger" onClick={toggleMenu}>
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            width="30"
+            height="30"
+          >
+            <path
+              d="M4 6H20M4 12H20M4 18H20"
+              stroke="#EEEEEE"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </div>
+
+        {/* Links Container: Added logic to toggle 'active' class */}
+        <div className={`left-nav ${isOpen ? "active" : ""}`}>
+          <a href="">
+            <h3>ورود / ثبت نام</h3>
+          </a>
+          <a href="">
+            <h3>محصولات / خدمات</h3>
+          </a>
+          <a href="">
+            <h3>درباره ما</h3>
+          </a>
+          <a href="">
+            <h3>تماس با ما</h3>
+          </a>
         </div>
 
         <div className="right-nav">
@@ -33,14 +69,12 @@ function NavBar() {
                 />
               </svg>
             </button>
-
             <input
               className="input"
               type="text"
               placeholder="جستجو..."
               required
             />
-
             <button className="reset" type="reset">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -59,7 +93,6 @@ function NavBar() {
               </svg>
             </button>
           </form>
-
           <h3>TechYar</h3>
         </div>
       </div>

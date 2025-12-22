@@ -1,49 +1,70 @@
 .comments{
-    margin: 100px auto 100px;
-    height: 350px;
-    width: 62%;
+    width: 90%;
+    max-width: 1200px;
+    margin: 100px auto;
     text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    gap: 40px;
+    direction: rtl;
+}
+
+.comments h2{
+    margin: 0;
+    font-size: 1.6rem;
+    color: #333;
 }
 
 .comment-container{
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    gap: 24px;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
+
 .comment-box{
+    background-color: #fff;
     text-align: right;
-    width: 300px;
-    height: 250px;
+    width: 100%;
+    max-width: 320px;
+    padding: 16px 14px 40px;
     box-shadow: 1px 2px 11px 4px rgb(14 55 54 / 15%);
-    padding: 3px;
-    border-bottom: 7px solid #4527A0;
-    border-radius: 0.5rem;
+    border-bottom: 6px solid #4527A0;
+    border-radius: 0.75rem;
     position: relative;
+    transition: transform 0.3s ease;
 }
 
 .comment-box:hover{
-    transform: translateY(5px);
-    transition: 0.4s;
-    transition-delay: 0.05s;
+    transform: translateY(-6px);
 }
 
 .comment{
-    width: 80%;
-    margin: 15px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
+
+.comment p{
+    font-size: 16px;
+    line-height: 1.8;
+    margin: 0;
+    color: #444;
+}
+
 
 .comment h4{
     position: absolute;
-    bottom: 20px;
+    bottom: 12px;
+    right: 16px;
+    margin: 0;
+    font-size: 13px;
+    color: #222;
 }
 
 .quote::before{
+    content: "\201C";
     font-size: 40px;
     font-family:'Franklin Gothic Medium';
-    content: "\201C";
-    color: #4527A0;
 }

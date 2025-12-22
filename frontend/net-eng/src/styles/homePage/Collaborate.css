@@ -1,89 +1,88 @@
 .wrapper{
-    width: 50%;
-    height: 300px;
-    margin: 20px auto;
-    margin-bottom: 100px;
-    padding: 15px 0;
+    width: 90%;
+    max-width: 700px;
+    margin: 20px auto 100px;
+    padding: 24px 16px;
     background-color: #FAFAFA;
-    box-shadow: 3px 3px 4px 5px #BDBDBD;
-    border-radius: 10px;
+    box-shadow: 3px 3px 8px rgba(0,0,0,0.15);
+    border-radius: 12px;
     text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content:space-around;
+    gap: 24px;
+    direction: rtl;
 }
 
 .wrapper h3{
     color:#4978aa;
+    font-size: 1.3rem;
+    margin: 0;
 }
 
 .colab-container{
-    height: 80%;
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
 }
 
 .inner-container{
-    height: 80%;
-    width: 80%;
+    width: 100%;
+    max-width: 600px;
     display: flex;
     flex-direction: column; 
-    justify-content: space-between;
+    gap: 16px;
 }
 
 .form-collaborate{
-    width: 90%;
-    margin: 0px auto;
     display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    
+    gap: 16px;
+    width: 100%;
 }
 
-.colab-container input{
-    width: 90%;
-    height: 35px;
+.colab-container input,
+.colab-container textarea{
+    flex: 1;
+    min-height: 40px;
     background-color: #F1EFEC;
-    color: black;
+    color: #000;
     text-align: right;
     font-size: 14px;
-    padding: 4px 6px;
-    border-radius: 17px;
+    padding: 8px 12px;
+    border-radius: 18px;
     border: 1px solid #757575;
-    transition: 0.5s;
-
+    font-family: inherit;
+    box-sizing: border-box;
 }
-
-.colab-container input:focus{
-
-  border-color: #183B4E;
-  box-shadow: 0 0 0 0.2rem rgba(39, 84, 138, 0.115);
-
-}
-
-
 
 #text-box{
     width: 100%;
-    color: black;
-    text-align: right; 
-    font-size: 14px;
-    padding: 4px 6px;  
-    border-radius: 17px;
+    min-height: 40px;
+    resize: none;
 }
 
-#text-box:focus{
-  border-color: #183B4E;
-  box-shadow: 0 0 0 0.2rem rgba(39, 84, 138, 0.115);
+.colab-container input:focus,
+.colab-container textarea:focus{
+    outline: none;
+    border-color: #183B4E;
+    box-shadow: 0 0 0 3px rgba(39, 84, 138, 0.12);
 }
 
-input::placeholder{
+input::placeholder,
+textarea::placeholder{
     color: #757575;
-} 
+}
 
+@media (max-width: 768px){
 
-input:active {
-  transform: scale(1.05);
+    .wrapper{
+        padding: 20px 14px;
+    }
+
+    .wrapper h3{
+        font-size: 1.1rem;
+    }
+
+    .form-collaborate{
+        flex-direction: column;
+    }
 }
