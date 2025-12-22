@@ -130,7 +130,7 @@ const StatsSection = () => {
       ([entry]) => {
         if (entry.isIntersecting) {
           setStartAnimation(true);
-          observer.disconnect(); // فقط یک بار اجرا بشه
+          observer.disconnect();// فقط یک بار اجرا بشه
         }
       },
       { threshold: 0.3 } // 30٪ بخش دیده شد → شروع

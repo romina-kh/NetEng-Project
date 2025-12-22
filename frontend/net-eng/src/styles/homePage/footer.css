@@ -4,7 +4,8 @@
 
 .footer {
   
-  background: #030303;
+  /* background: #030303; */
+  background: linear-gradient(135deg, #0f172a, #27374f);
   color: #F1EFEC;
   padding: 20px 20px;
   text-align: right;
@@ -98,7 +99,8 @@
   height: 90%;
   border-radius: 8px;
   transition-duration: 1s;
-  background-color: rgba(0, 0, 0, 0.842);
+  /* background-color: rgba(39, 55, 79, 1); */
+  background-color: rgba(15, 23, 42, 1);
   background-size: 200%;
 }
 
@@ -129,6 +131,13 @@
   margin: 0 auto 10px;
   display: block;
   margin-right: 25%;
+  transition: 0.5s;
+}
+
+.footer-logo:hover {
+  opacity: 1;
+  transform: scale(1.15);
+  
 }
 
 
