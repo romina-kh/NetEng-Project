@@ -6,7 +6,7 @@ function NavBar() {
     <div className="navbar">
       <div className="nav">
         <div className="left-nav">
-          <a href=""><h3>ورود / ثبت نام</h3></a>
+          <a href="/login"><h3>ورود / ثبت نام</h3></a>
           <a href=""><h3>محصولات / خدمات</h3></a>
           <a href=""><h3>درباره ما</h3></a>
           <a href=""><h3>تماس با ما</h3></a>
