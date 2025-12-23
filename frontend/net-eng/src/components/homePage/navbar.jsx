@@ -34,7 +34,7 @@ function NavBar() {
 
         {/* Links Container: Added logic to toggle 'active' class */}
         <div className={`left-nav ${isOpen ? "active" : ""}`}>
-          <a href="">
+          <a href="/login">
             <h3>ورود / ثبت نام</h3>
           </a>
           <a href="">
