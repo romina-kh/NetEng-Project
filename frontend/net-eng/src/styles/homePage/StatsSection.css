@@ -29,15 +29,21 @@
   }
 
   .stat-item:nth-child(1) {
-  background: linear-gradient(135deg, #27548A, #183B4E);
+  /* background: linear-gradient(135deg, #27548A, #183B4E); */
+    background: linear-gradient(135deg, #0f172a, #27374f); 
+
 }
 
 .stat-item:nth-child(2) {
-  background: linear-gradient(90deg, #27548A, #183B4E);
+  /* background: linear-gradient(90deg, #27548A, #183B4E); */
+    background: linear-gradient(90deg, #0f172a, #27374f); 
+
 }
 
 .stat-item:nth-child(3) {
-  background: linear-gradient(45deg, #27548A, #183B4E);
+  /* background: linear-gradient(45deg, #27548A, #183B4E); */
+    background: linear-gradient(45deg, #0f172a, #27374f); 
+
 }
 
   
@@ -48,7 +54,8 @@
   .stat-value {
     font-size: 42px;
     font-weight: bold;
-    color: #38bdf8;
+    /* color: #38bdf8; */
+    color: #6eadc8;
     margin-bottom: 10px;
   }
   

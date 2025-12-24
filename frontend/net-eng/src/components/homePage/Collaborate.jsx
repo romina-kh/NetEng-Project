@@ -37,7 +37,7 @@ function Collaborate(){
                         </div>
                         <div className="button-collaborate-div">
                             <span className="button-collaborate-div-span">
-                                <p className="button-collaborate-p">ثبت شد !</p>
+                                <p className="button-collaborate-p"> ثبت </p>
                             </span>
                         </div>
                     </button>
