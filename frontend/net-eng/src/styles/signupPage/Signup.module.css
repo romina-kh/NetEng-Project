@@ -21,7 +21,7 @@
   overflow: hidden;
 }
 
-/* hover animation */
+
 .container:hover .top::before,
 .container:hover .top::after,
 .container:hover .bottom::before,
@@ -36,7 +36,7 @@
   transition-delay: 0.2s;
 }
 
-/* shapes */
+
 .top::before,
 .top::after,
 .bottom::before,
@@ -75,7 +75,7 @@
   background: var(--dark);
 }
 
-/* center box */
+
 .center {
   position: absolute;
   width: 420px;
@@ -116,7 +116,7 @@
   border-color: var(--accent-blue);
 }
 
-/* button */
+
 .signupBtn {
   margin-top: 14px;
   width: 100%;
@@ -141,7 +141,7 @@
 
 .link {
   margin-top: 12px;
-  font-size: 13px;
+  font-size: 16px;
 }
 
 .link a {
