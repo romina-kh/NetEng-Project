@@ -37,13 +37,10 @@ function NavBar() {
           <a href="/login">
             <h3>ورود / ثبت نام</h3>
           </a>
-          <a href="">
-            <h3>محصولات / خدمات</h3>
+          <a href="#product">
+            <h3>محصولات</h3>
           </a>
-          <a href="">
-            <h3>درباره ما</h3>
-          </a>
-          <a href="">
+          <a href="#contact">
             <h3>تماس با ما</h3>
           </a>
         </div>

@@ -10,7 +10,7 @@ import "../../styles/homePage/product.css"
 export default function Products() {
   return (
     <section className="products-section">
-      <h2 className="products-title">محصولات منتخب</h2>
+      <h2 id="product" className="products-title">محصولات منتخب</h2>
 
       <div className="products-grid">
         <div className="product-card">

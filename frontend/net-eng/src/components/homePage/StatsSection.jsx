@@ -59,8 +59,8 @@ const StatsSection = () => {
     <section className="stats-section" ref={sectionRef}>
       <div className="stats-container">
         <StatItem value={257} label="ساعت کار" start={startAnimation} />
-        <StatItem value={738} label="پروژه موفق" start={startAnimation} />
-        <StatItem value={1000} label="خریدار خوشحال" start={startAnimation} />
+        <StatItem value={736} label="پروژه موفق" start={startAnimation} />
+        <StatItem value={1027} label="خریدار خوشحال" start={startAnimation} />
       </div>
     </section>
   );
