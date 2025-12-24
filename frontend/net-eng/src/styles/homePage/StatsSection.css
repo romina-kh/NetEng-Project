@@ -1,8 +1,9 @@
 .stats-section {
     width: 100%;
     padding: 70px 20px;
-    background: linear-gradient(135deg, #0f172a, #1e293b);
+    /* background: linear-gradient(135deg, #0f172a, #1e293b); */
     /* background: linear-gradient(135deg, #0f2a1f, #1e1e3b); */
+
 
   }
   
@@ -14,6 +15,8 @@
     gap: 30px;
     flex-wrap: wrap;
     text-align: center;
+
+    
   }
   
   .stat-item {
@@ -24,6 +27,19 @@
     backdrop-filter: blur(8px);
     transition: transform 0.3s ease;
   }
+
+  .stat-item:nth-child(1) {
+  background: linear-gradient(135deg, #27548A, #183B4E);
+}
+
+.stat-item:nth-child(2) {
+  background: linear-gradient(90deg, #27548A, #183B4E);
+}
+
+.stat-item:nth-child(3) {
+  background: linear-gradient(45deg, #27548A, #183B4E);
+}
+
   
   .stat-item:hover {
     transform: translateY(-8px);
