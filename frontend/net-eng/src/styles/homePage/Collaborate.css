@@ -1,151 +1,155 @@
-.wrapper{
-    width: 90%;
-    max-width: 700px;
-    margin: 20px auto 100px;
-    padding: 24px 16px;
-    background-color: #FAFAFA;
-    box-shadow: 3px 3px 8px rgba(0,0,0,0.15);
-    border-radius: 12px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    direction: rtl;
+.wrapper {
+  width: 90%;
+  max-width: 700px;
+  margin: 20px auto 100px;
+  padding: 24px 16px;
+  background-color: #fafafa;
+  box-shadow: 3px 3px 8px rgba(0,0,0,0.15);
+  border-radius: 12px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  direction: rtl;
 }
 
-.wrapper h3{
-    color:#4978aa;
-    font-size: 1.3rem;
-    margin: 0;
+.wrapper h3 {
+  color: #4978aa;
+  font-size: 1.3rem;
+  margin: 0;
 }
 
-.colab-container{
-    width: 100%;
-    display: flex;
-    justify-content: center;
+.colab-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
-.inner-container{
-    width: 100%;
-    max-width: 600px;
-    display: flex;
-    flex-direction: column; 
-    gap: 16px;
+.inner-container {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
-.form-collaborate{
-    display: flex;
-    gap: 16px;
-    width: 100%;
+.form-collaborate {
+  display: flex;
+  gap: 16px;
+  width: 100%;
 }
 
-.colab-container input {
-    width: 90%;
-    height: 35px;
-    background-color: #F1EFEC;
-    color: #000;
-    text-align: right;
-    font-size: 14px;
-    padding: 8px 12px;
-    border-radius: 18px;
-    border: 1px solid #757575;
-    font-family: inherit;
-    box-sizing: border-box;
+.colab-container input,
+.select-collaborate {
+  width: 90%;
+  height: 35px;
+  background-color: #f1efec;
+  color: #000;
+  text-align: right;
+  font-size: 14px;
+  padding: 8px 12px;
+  border-radius: 18px;
+  border: 1px solid #757575;
+  font-family: inherit;
+
 }
 
-#text-box{
-    width: 100%;
-    min-height: 40px;
-    resize: none;
+.colab-container input:focus{
+  border-color: #12435d;
+  box-shadow: 0 0 0 0.2rem rgba(39, 84, 138, 0.115);
+
 }
+
+#text-box {
+  width: 100%;
+  min-height: 40px;
+}
+
 
 #text-box:focus{
   border-color: #12435d;
   box-shadow: 0 0 0 0.2rem rgba(39, 84, 138, 0.115);
 }
 
-input::placeholder,
-textarea::placeholder{
-    color: #757575;
+
+input::placeholder {
+  color: #757575;
 }
 
-@media (max-width: 768px){
 
-    .wrapper{
-        padding: 20px 14px;
-    }
-
-    .wrapper h3{
-        font-size: 1.1rem;
-    }
-
-    .form-collaborate{
-        flex-direction: column;
-    }
+input:active {
+  transform: scale(1.05);
 }
 
-.select-collaborate{
-    width: 90%;
-    height: 35px;
-    background-color: #F1EFEC;
-    text-align: right;
-    font-size: 14px;
-    padding: 4px 6px;
-    border-radius: 17px;
-    border: 1px solid #757575;
+.select-collaborate {
+  padding: 4px 6px;
 }
 
 
 
 .button-collaborate {
-    margin: auto;
-    border-radius: 20px;
-    outline: 0;
-    border: 0;
-    display: flex;
-    flex-direction: column;
-    width: 80%;
-    max-width: 135px;
-    height: 45px;
-    overflow: hidden;
-    cursor: pointer;
-
+  margin: auto;
+  border-radius: 20px;
+  border: 0;
+  width: 80%;
+  max-width: 135px;
+  height: 45px;
+  cursor: pointer;
+  background: #27548A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
 }
 
-
-.button-collaborate,
-.button-collaborate-div {
-    transition: 0.6s cubic-bezier(.16,1,.3,1);
+.button-collaborate:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
-.button-collaborate-div-span {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 50px;
-    padding: 0.75em 1.125em;
-} 
-
-.button-collaborate-div:nth-child(1) {
-    background-color: #27548A;
-}
-
-.button-collaborate-div:nth-child(2) {
-    background-color: #d8a148;
-}
-
-
-.button-collaborate:hover div {
-    transform: translateY(-50px);
+.button-collaborate:disabled:hover {
+  transform: none;
 }
 
 .button-collaborate-p {
-    font-size: 15px;
-    color: #ffffff;
-    text-align: center;
-
+  font-size: 15px;
+  color: #ffffff;
+  margin: 0;
 }
 
-.button-collaborate:active {
-    transform: scale(0.95);
+
+
+@media (max-width: 768px) {
+  .form-collaborate {
+    flex-direction: column;
+  }
 }
+
+
+.field {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.field input {
+  width: 100%;
+}
+
+
+.error-text {
+  color: #d32f2f;
+  font-size: 12px;
+  margin-top: 4px;
+  text-align: right;
+}
+
+.button-collaborate.submitted {
+  background: linear-gradient(135deg, #ffd277, #dda853);
+}
+
+
+/* 
+.form-collaborate > * {
+  outline: 1px solid red;
+}  */

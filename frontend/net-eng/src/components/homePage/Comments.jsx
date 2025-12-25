@@ -9,7 +9,14 @@ function Comments(){
             <div className="comment-container">
                 <div className="comment-box">
                     <div className="comment">
-                        <i className="quote"></i>
+                         <i className='bx bxs-quote-alt-left'></i>
+                            <div className="stars">
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bx-star'></i>
+                                <i class='bx bx-star'></i>
+                            </div>
                         <p>محصول سالم رسید، اما بسته‌بندی طوری بود که فکر کردم از جنگ برگشته. لطفاً یه کم مهربون‌تر 
                         </p>
                         <h4>آریا نادری</h4>
@@ -17,7 +24,14 @@ function Comments(){
                 </div>
                 <div className="comment-box">
                     <div className="comment">
-                        <i className="quote"></i>
+                         <i className='bx bxs-quote-alt-left'></i>
+                            <div className="stars">
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star-half'></i>
+                                <i class='bx bx-star'></i>
+                                <i class='bx bx-star'></i>
+                            </div>
                         <p> همه چی خوب بود، فقط ارسالش یه ذره طول کشید. انقدر که من با محصول تو ذهنم خاطره ساخته بودم هنوز نرسیده! 
                         </p>
                         <h4>محمد متین پریان</h4>
@@ -25,8 +39,15 @@ function Comments(){
                 </div>
                 <div className="comment-box">
                     <div className="comment">
-                        <i className="quote"></i>
-                        <p>سایت خوبه، فقط کاش فیلترها دقیق‌تر باشه. من دنبال موس بودم، کیبورد هم پیشنهاد داد، اسپیکر هم انداخت وسط، آخرش خودم گیج شدم
+                            <i className='bx bxs-quote-alt-left'></i>
+                            <div className="stars">
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star-half'></i>
+                            </div>
+                        <p>محصول دقیقاً همونیه که تو عکس بود، نه مثل بعضی سایت‌ها که عکس آیفون می‌ذارن، نوکیا می‌فرستن!
                         </p>
                         <h4>رومینا خانمحمدی</h4>
                     </div>
