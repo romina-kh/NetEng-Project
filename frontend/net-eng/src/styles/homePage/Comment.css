@@ -1,0 +1,77 @@
+.comments{
+    width: 90%;
+    max-width: 1200px;
+    margin: 100px auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    direction: rtl;
+}
+
+.comments h2{
+    margin: 0;
+    font-size: 1.6rem;
+    color: #333;
+}
+
+.comment-container{
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+
+.comment-box{
+    background-color: transparent;
+    text-align: right;
+    width: 100%;
+    max-width: 320px;
+    padding: 16px 14px 40px;
+    box-shadow: 1px 2px 11px 4px rgb(14 55 54 / 15%);
+    /* border-bottom: 6px solid #4527A0; */
+    border-bottom: 6px solid #27548A;
+    border-radius: 0.75rem;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.comment-box:hover{
+    transform: translateY(-6px);
+}
+
+.comment{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.comment p{
+    font-size: 16px;
+    line-height: 1.8;
+    margin: 0;
+    color: #444;
+}
+
+
+.comment h4{
+    position: absolute;
+    bottom: 12px;
+    right: 16px;
+    margin: 0;
+    font-size: 13px;
+    color: #222;
+}
+
+.quote::before{
+    content: "\201C";
+    font-size: 40px;
+    font-family:'Franklin Gothic Medium';
+}
+
+.stars{
+    color: #d1a03f;
+    text-align: left;
+    direction: ltr;
+}

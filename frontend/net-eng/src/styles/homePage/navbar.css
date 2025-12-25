@@ -1,0 +1,196 @@
+.hamburger {
+  display: none; 
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .hamburger {
+    display: block; 
+    z-index: 1001; 
+  }
+
+  .left-nav {
+    position: fixed;
+    top: 90px; 
+    right: -100%;
+    width: 30%;
+    height: calc(100vh - 80px); 
+    background-color: #071952;
+    flex-direction: column; 
+    justify-content: flex-start; 
+    padding-top: 40px;
+    margin-right: 0; 
+    transition: 0.3s ease-in-out; 
+    z-index: 999;
+  }
+
+  .left-nav.active {
+    right: 0; 
+    margin-right: 0;
+  }
+
+  .left-nav a {
+    margin: 15px 0; 
+    font-size: 1.2rem;
+  }
+
+  .form {
+    --width-of-input: 140px; 
+  }
+  
+  .right-nav h3 {
+      font-size: 1.2rem;
+  }
+
+  h3{
+    font-size: 16px;
+  }
+}
+
+.navbar{
+    width: 100%;
+    height: 80px;
+    /* background-color: #071952; */
+    background: linear-gradient(135deg, #0f172a, #27374f); 
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+}
+
+.nav{
+    width: 95%;
+    margin: auto auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.left-nav{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: space-between;
+    margin-right: 20px;
+}
+
+
+.left-nav a {
+    text-decoration: none;
+    color: #EEEEEE;
+    position: relative;
+    font-size: 14px;
+}
+
+.left-nav a::after{
+    position: absolute;
+    content: "";
+    background-color: #EBF4F6;
+    width: 0;
+    margin-top: 2px;
+    height: 2px;
+}
+
+.left-nav > a:hover
+{   
+    transform: translateY(1px);
+    transition: 250ms;
+    transition-delay: 100ms;
+}
+
+
+.left-nav a:hover::after{
+    width: 100%;
+    transition: 250ms;
+    transition-delay: 100ms;
+}
+
+.right-nav{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: space-between;
+    color: #EEEEEE;
+    font-size: 24px;
+}
+
+.form button {
+  border: none;
+  background: none;
+  color: #8b8ba7;
+}
+
+.form {
+  --timing: 0.3s;
+  --width-of-input: 200px;
+  --height-of-input: 40px;
+  --border-height: 2px;
+  --input-bg: #fff;
+  --border-color: #2f2ee9;
+  --border-radius: 30px;
+  --after-border-radius: 2px;
+  position: relative;
+  width: var(--width-of-input);
+  height: var(--height-of-input);
+  display: flex;
+  align-items: center;
+  padding-inline: 0.8em;
+  border-radius: var(--border-radius);
+  transition: border-radius 0.5s ease;
+  background: var(--input-bg,#fff);
+}
+
+.input {
+  font-size: 0.9rem;
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  padding-inline: 0.5em;
+  padding-block: 0.7em;
+  border: none;
+}
+
+.form:before {
+  content: "";
+  position: absolute;
+  background: var(--border-color);
+  transform: scaleX(0);
+  transform-origin: center;
+  width: 100%;
+  height: var(--border-height);
+  left: 0;
+  bottom: 0;
+  border-radius: 1px;
+  transition: transform var(--timing) ease;
+}
+
+.form:focus-within {
+  border-radius: var(--after-border-radius);
+}
+
+input:focus {
+  outline: none;
+}
+
+.form:focus-within:before {
+  transform: scale(1);
+}
+
+.reset {
+  border: none;
+  background: none;
+  opacity: 0;
+  visibility: hidden;
+}
+
+input:not(:placeholder-shown) ~ .reset {
+  opacity: 1;
+  visibility: visible;
+}
+
+.form svg {
+  width: 17px;
+  margin-top: 3px;
+}
