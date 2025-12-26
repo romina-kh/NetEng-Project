@@ -79,7 +79,9 @@
 
 .center {
   position: absolute;
-  width: 380px;
+  width: 100%;
+  max-width: 380px;
+  min-width: 300px;
   height: 380px;
   top: 50%;
   left: 50%;

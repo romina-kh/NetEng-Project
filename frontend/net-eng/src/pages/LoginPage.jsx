@@ -25,10 +25,8 @@ export default function Login() {
 
     if (!values.password.trim()) {
       newErrors.password = "وارد کردن رمز عبور الزامی است!";
-    } else if (values.password.length < 6) {
-      newErrors.password = "رمز عبور باید حداقل ۶ کاراکتر باشد!";
-    }
-
+    } 
+    
     setErrors(newErrors);
 
     if (Object.keys(newErrors).length === 0) {
