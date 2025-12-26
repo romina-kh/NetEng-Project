@@ -20,7 +20,10 @@ function Collaborate() {
 
     if (!values.firstName.trim()) newErrors.firstName = "وارد کردن نام الزامی است !";
     if (!values.lastName.trim()) newErrors.lastName = "وارد کردن نام خانوادگی الزامی است !";
-    if (!values.phone.trim()) newErrors.phone = "وارد کردن شماره تلفن الزامی است !";
+    if (!values.phone.trim()) {newErrors.phone = "وارد کردن شماره تلفن الزامی است !";}
+    else if (!/^09\d{9}$/.test(values.phone)) {
+      newErrors.phone = "شماره تلفن معتبر نیست!";
+    }
 
     setErrors(newErrors);
 
