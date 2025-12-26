@@ -9,24 +9,45 @@ function Comments(){
             <div className="comment-container">
                 <div className="comment-box">
                     <div className="comment">
-                        <i className="quote"></i>
-                        <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، 
+                         <i className='bx bxs-quote-alt-left'></i>
+                            <div className="stars">
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bx-star'></i>
+                                <i class='bx bx-star'></i>
+                            </div>
+                        <p>محصول سالم رسید، اما بسته‌بندی طوری بود که فکر کردم از جنگ برگشته. لطفاً یه کم مهربون‌تر 
                         </p>
                         <h4>آریا نادری</h4>
                     </div>
                 </div>
                 <div className="comment-box">
                     <div className="comment">
-                        <i className="quote"></i>
-                        <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه 
+                         <i className='bx bxs-quote-alt-left'></i>
+                            <div className="stars">
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star-half'></i>
+                                <i class='bx bx-star'></i>
+                                <i class='bx bx-star'></i>
+                            </div>
+                        <p> همه چی خوب بود، فقط ارسالش یه ذره طول کشید. انقدر که من با محصول تو ذهنم خاطره ساخته بودم هنوز نرسیده! 
                         </p>
                         <h4>محمد متین پریان</h4>
                     </div>
                 </div>
                 <div className="comment-box">
                     <div className="comment">
-                        <i className="quote"></i>
-                        <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان 
+                            <i className='bx bxs-quote-alt-left'></i>
+                            <div className="stars">
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star'></i>
+                                <i class='bx bxs-star-half'></i>
+                            </div>
+                        <p>محصول دقیقاً همونیه که تو عکس بود، نه مثل بعضی سایت‌ها که عکس آیفون می‌ذارن، نوکیا می‌فرستن!
                         </p>
                         <h4>رومینا خانمحمدی</h4>
                     </div>

@@ -1,7 +1,57 @@
+.hamburger {
+  display: none; 
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .hamburger {
+    display: block; 
+    z-index: 1001; 
+  }
+
+  .left-nav {
+    position: fixed;
+    top: 90px; 
+    right: -100%;
+    width: 30%;
+    height: calc(100vh - 80px); 
+    background-color: #071952;
+    flex-direction: column; 
+    justify-content: flex-start; 
+    padding-top: 40px;
+    margin-right: 0; 
+    transition: 0.3s ease-in-out; 
+    z-index: 999;
+  }
+
+  .left-nav.active {
+    right: 0; 
+    margin-right: 0;
+  }
+
+  .left-nav a {
+    margin: 15px 0; 
+    font-size: 1.2rem;
+  }
+
+  .form {
+    --width-of-input: 140px; 
+  }
+  
+  .right-nav h3 {
+      font-size: 1.2rem;
+  }
+
+  h3{
+    font-size: 16px;
+  }
+}
+
 .navbar{
     width: 100%;
-    height: 90px;
-    background-color: #071952;
+    height: 80px;
+    /* background-color: #071952; */
+    background: linear-gradient(135deg, #0f172a, #27374f); 
     position: fixed;
     top: 0;
     z-index: 1000;
@@ -15,6 +65,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+
 }
 
 .left-nav{
@@ -30,6 +81,7 @@
     text-decoration: none;
     color: #EEEEEE;
     position: relative;
+    font-size: 14px;
 }
 
 .left-nav a::after{
