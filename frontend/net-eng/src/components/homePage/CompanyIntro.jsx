@@ -1,10 +1,13 @@
 import React from "react";
-import "./CompanyIntro.css";
+import "../../styles/homePage/CompanyIntro.css";
 
 import introImage from "../../assets/company/intro.png";
-import amazonLogo from "../../assets/company/amazon.png";
+import techno from "../../assets/company/technolife.png";
 import reactLogo from "../../assets/company/react.png";
 import goLogo from "../../assets/company/golang.png";
+import tire from "../../assets/company/simpletire.png";
+import digikala from "../../assets/company/digikala.png";
+import amazonLogo from "../../assets/company/amazon.png"
 
 const CompanyIntro = () => {
   return (
@@ -26,9 +29,13 @@ const CompanyIntro = () => {
 
           {/* لوگو تکنولوژی‌ها */}
           <div className="tech-logos">
-            <img src={amazonLogo} alt="React" />
+            <img src={amazonLogo} alt="amazon" />
+            <img src={tire} alt="tire"/>
+            <img src={digikala} alt="tire"/>
+            <img src={techno} alt="techno"/>
             <img src={reactLogo} alt="Node.js" />
             <img src={goLogo} alt="Docker" />
+            
           </div>
         </div>
 

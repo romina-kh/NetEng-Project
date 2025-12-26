@@ -22,7 +22,7 @@ const TeamSection = () => {
     },
     {
         image: rominapic,
-        name: "Romina KhanMohammadi",
+        name: "Romina Khanmohammadi",
         role: "Developer",
         links: [
             { url: "https://github.com/romina-kh", icon: <FaGithub /> },

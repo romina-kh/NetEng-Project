@@ -152,3 +152,13 @@
   color: var(--primary);
   font-weight: bold;
 }
+.error {
+  text-align: right;
+  font-size: 12px;
+  color: red;
+  direction: rtl;
+  text-align: right;
+  margin: 4px 0 6px 0; 
+  line-height: 1.4;
+  align-self: flex-start; 
+}
