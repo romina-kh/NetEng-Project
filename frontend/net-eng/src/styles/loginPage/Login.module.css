@@ -3,8 +3,6 @@
   font-family: "Vazirmatn", sans-serif;
 }
 
-
-
 .container {
   --bg-main: #F1EFEC;
   --bg-soft: #D4C9BE;
@@ -60,7 +58,7 @@
 
 .top::before {
   transform: rotate(45deg);
-  background: var(--accent-gold);
+  background: var(--accent-blue);
 }
 
 .top::after {
@@ -70,7 +68,7 @@
 
 .bottom::before {
   transform: rotate(-45deg);
-  background: var(--accent-blue);
+  background: var(--accent-gold);
 }
 
 .bottom::after {
@@ -132,7 +130,7 @@
     var(--accent-gold),
     #DDA853
   );
-  color: var(--dark);
+  color: white;
   font-weight: bold;
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -143,6 +141,17 @@
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
+
+.link {
+  margin-top: 12px;
+  font-size: 16px;
+}
+
+.link a {
+  text-decoration: none;
+  color: var(--primary);
+  font-weight: bold;
+}
 .error {
   text-align: right;
   font-size: 12px;

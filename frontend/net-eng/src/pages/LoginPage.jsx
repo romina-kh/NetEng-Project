@@ -67,7 +67,7 @@ export default function Login() {
           {submitted ? "ورود موفق ✔" : "ورود"}
         </button>
 
-        <p>
+        <p className={styles.link}>
           ثبت نام نکرده اید؟ <a href="/signup">ثبت‌نام</a>
         </p>
       </div>
