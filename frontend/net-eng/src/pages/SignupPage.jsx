@@ -16,7 +16,6 @@ export default function Signup() {
     setValues({ ...values, [e.target.name]: e.target.value });
   };
 
-
   const handleSubmit = () => {
     const newErrors = {};
 
@@ -41,7 +40,7 @@ export default function Signup() {
 
     if (Object.keys(newErrors).length === 0) {
       setSubmitted(true);
-      console.log("📨 فرم ارسال شد:", values);
+      console.log("✅ فرم ارسال شد:", values);
     }
   };
 
@@ -53,51 +52,42 @@ export default function Signup() {
       <div className={styles.center}>
         <h2>ثبت‌نام در تک‌یار</h2>
 
+        <input
+          type="text"
+          name="firstName"
+          placeholder="نام"
+          value={values.firstName}
+          onChange={handleChange}
+        />
+        {errors.firstName && <p className={styles.error}>{errors.firstName}</p>}
 
-        <div className={styles.field}>
-          <input
-            type="text"
-            name="firstName"
-            placeholder="نام"
-            value={values.firstName}
-            onChange={handleChange}
-          />
-          <p className={styles.error}>{errors.firstName || ""}</p>
-        </div>
+        <input
+          type="text"
+          name="lastName"
+          placeholder="نام خانوادگی"
+          value={values.lastName}
+          onChange={handleChange}
+        />
+        {errors.lastName && <p className={styles.error}>{errors.lastName}</p>}
 
-        <div className={styles.field}>
-          <input
-            type="text"
-            name="lastName"
-            placeholder="نام خانوادگی"
-            value={values.lastName}
-            onChange={handleChange}
-          />
-          <p className={styles.error}>{errors.lastName || ""}</p>
-        </div>
+        <input
+          type="tel"
+          name="phone"
+          placeholder="شماره تلفن"
+          value={values.phone}
+          onChange={handleChange}
+          pattern="[0][9][0-9]{9}"
+        />
+        {errors.phone && <p className={styles.error}>{errors.phone}</p>}
 
-        <div className={styles.field}>
-          <input
-            type="tel"
-            name="phone"
-            placeholder="شماره تلفن"
-            value={values.phone}
-            onChange={handleChange}
-            pattern="[0][9][0-9]{9}"
-          />
-          <p className={styles.error}>{errors.phone || ""}</p>
-        </div>
-
-        <div className={styles.field}>
-          <input
-            type="password"
-            name="password"
-            placeholder="رمز عبور"
-            value={values.password}
-            onChange={handleChange}
-          />
-          <p className={styles.error}>{errors.password || ""}</p>
-        </div>
+        <input
+          type="password"
+          name="password"
+          placeholder="رمز عبور"
+          value={values.password}
+          onChange={handleChange}
+        />
+        {errors.password && <p className={styles.error}>{errors.password}</p>}
 
         <button
           className={styles.signupBtn}
