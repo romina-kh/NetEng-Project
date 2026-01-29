@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS servers(
     server_number SERIAL PRIMARY KEY,
     ip VARCHAR (15) NOT NULL,
     picture VARCHAR(50) NOT NULL,
-    price INTEGER NOT NULL,
+    price DEC(15, 2) NOT NULL,
     os VARCHAR(20) NOT NULL,
     storage VARCHAR (25) NOT NULL
 );
@@ -81,7 +81,7 @@ CREATE TABLE IF NOT EXISTS ram(
 
 CREATE TABLE IF NOT EXISTS orders(
     order_number SERIAL PRIMARY KEY,
-    total_price INTEGER NOT NULL, 
+    total_price DEC(15, 2) NOT NULL, 
     status order_status NOT NULL,
     created_at TIMESTAMP NOT NULL,
     user_id INTEGER,
@@ -96,12 +96,16 @@ CREATE TABLE IF NOT EXISTS cart_item (
     cart_number INTEGER,
     server_number INTEGER,
     quantity INTEGER,
-    price_at_added_time INTEGER,
+    price_at_added_time DECIMAL(15, 2),
     start_rent_time TIMESTAMP,
     rental_duration TIME,
 
     PRIMARY KEY (user_id, cart_number, server_number),
-    FOREIGN KEY (user_id, cart_number) REFERENCES cart_shop(user_id, cart_number),
+
+    FOREIGN KEY (user_id, cart_number) REFERENCES cart_shop(user_id, cart_number)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+
     FOREIGN KEY (server_number) REFERENCES servers (server_number)
     ON DELETE CASCADE
     ON UPDATE CASCADE
@@ -111,12 +115,16 @@ CREATE TABLE IF NOT EXISTS order_item (
     order_number INTEGER,
     server_number INTEGER,
     quantity INTEGER,
-    price_at_added_time INTEGER,
+    price_at_added_time DECIMAL(15, 2),
     start_rent_time TIMESTAMP,
     rental_duration TIME,
 
     PRIMARY KEY (order_number, server_number),
-    FOREIGN KEY (order_number) REFERENCES orders(order_number),
+
+    FOREIGN KEY (order_number) REFERENCES orders(order_number)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+
     FOREIGN KEY (server_number) REFERENCES servers (server_number)
     ON DELETE CASCADE
     ON UPDATE CASCADE
