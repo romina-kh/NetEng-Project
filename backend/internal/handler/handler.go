@@ -1,6 +1,8 @@
 package handler
 
-import "github.com/romina-kh/NetEng-Project/backend/internal/service"
+import (
+	"github.com/romina-kh/NetEng-Project/backend/internal/service"
+)
 
 type Handler struct {
 	service *service.Service
