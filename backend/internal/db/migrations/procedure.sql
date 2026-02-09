@@ -2,6 +2,9 @@
 
 ------------------------------------
 
+CREATE EXTENSION IF NOT EXISTS pg_cron;
+
+
 CREATE PROCEDURE set_order(curr_user_id INT)
 LANGUAGE plpgsql
 AS $$
@@ -28,3 +31,26 @@ BEGIN
     
 END;
 $$;
+
+
+CREATE PROCEDURE update_order_status()
+LANGUAGE plpgsql
+AS $$
+BEGIN
+
+    UPDATE servers AS s
+    SET s.status = 'expired'
+    FROM order_item AS io
+    WHERE s.server_number = io.server_number
+    AND s.status = 'active'
+    AND NOW() > io.start_rent_time + oi.rental_duration;
+
+END;
+$$;
+
+
+SELECT cron.schedule(
+   'release-expired-servers',
+   '*/5 * * * *',
+   $$CALL update_order_status();$$
+);

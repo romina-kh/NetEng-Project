@@ -1,3 +1,10 @@
+REVOKE CONNECT ON DATABASE techyar FROM public;
+
+SELECT pg_terminate_backend(pid)
+FROM pg_stat_activity
+WHERE datname = 'techyar'
+  AND pid <> pg_backend_pid();
+
 DROP DATABASE IF EXISTS techyar;
 CREATE DATABASE techyar;
 
@@ -20,7 +27,7 @@ CREATE TABLE IF NOT EXISTS users(
     role user_role NOT NULL,
     email VARCHAR(30),
     address VARCHAR (100),
-    wallet INTEGER,
+    wallet DECIMAL(15, 2),
     birthday DATE,
     avatar VARCHAR(50)
 );
@@ -98,7 +105,7 @@ CREATE TABLE IF NOT EXISTS cart_item (
     quantity INTEGER,
     price_at_added_time DECIMAL(15, 2),
     start_rent_time TIMESTAMP,
-    rental_duration TIME,
+    rental_duration INTERVAL,
 
     PRIMARY KEY (user_id, cart_number, server_number),
 
@@ -117,7 +124,7 @@ CREATE TABLE IF NOT EXISTS order_item (
     quantity INTEGER,
     price_at_added_time DECIMAL(15, 2),
     start_rent_time TIMESTAMP,
-    rental_duration TIME,
+    rental_duration INTERVAL,
 
     PRIMARY KEY (order_number, server_number),
 
