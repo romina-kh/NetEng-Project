@@ -30,16 +30,16 @@ DECLARE
     user_wallet_amount DECIMAL (15, 2);
 BEGIN
 
-    SELECT wallet
-    INTO user_wallet_amount
-    FROM users AS u
-    WHERE NEW.user_id = u.user_id;
+    UPDATE users AS u
+    SET u.wallet = wallet - NEW.total_price;
+    WHERE u.user_id = NEW.user_id
+    AND u.wallet >= NEW.total_price;
 
-    IF NEW.total_price > user_wallet_amount THEN
-       RAISE EXCEPTION 'your balance is insufficient';
+    IF NOT FOUND THEN
+        RAISE EXCEPTION 'your balance is insufficient';
     END IF;
 
-    RETURN NEW;
+RETURN NEW;
 
 END;
 $$ LANGUAGE plpgsql;
