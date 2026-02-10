@@ -12,6 +12,5 @@ func SetupRouter(h *handler.Handler) *gin.Engine {
 
 	user.POST("/signup", h.Signup)
 
-
 	return r
 }

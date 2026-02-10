@@ -3,20 +3,11 @@ package repository
 import (
 	"context"
 
-	"github.com/romina-kh/NetEng-Project/backend/internal/db"
 	"github.com/romina-kh/NetEng-Project/backend/internal/model"
 )
 
-type Repository interface {
+type UserRepository interface {
 	CreateUser(ctx context.Context, user model.User) error
-}
-
-type PostgressRepo struct {
-	db *db.PostgressDB
-}
-
-func NewRepository(db *db.PostgressDB) *PostgressRepo {
-	return &PostgressRepo{
-		db: db,
-	}
+	ExistsByEmail(ctx context.Context, email string) (bool, error)
+	ExistsByPhonenumber(ctx context.Context, email string) (bool, error)
 }
