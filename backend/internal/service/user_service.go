@@ -59,7 +59,20 @@ func (s *userservice) Signup(ctx context.Context, user model.User, password stri
 }
 
 
-func (s *userservice) login(ctx context.Context, username string, password string) (int, error) {
-	return 0, nil
+func (s *userservice) Login(ctx context.Context, identifier string, password string) (*model.User, error) {
+	user, err := s.repo.GetByEmailOrPhone(ctx, identifier)
+	if err != nil {
+		return nil, errors.New("invalid credentials")
+	}
 
+	err = bcrypt.CompareHashAndPassword(
+		[]byte(user.PasswordHash),
+		[]byte(password),
+	)
+	if err != nil {
+		return nil, errors.New("invalid credentials")
+	}
+
+	return user, nil
 }
+
