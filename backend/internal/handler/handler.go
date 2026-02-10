@@ -6,15 +6,16 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/romina-kh/NetEng-Project/backend/internal/dto"
+	"github.com/romina-kh/NetEng-Project/backend/internal/model"
 	"github.com/romina-kh/NetEng-Project/backend/internal/service"
 )
 
 type Handler struct {
-	service *service.Service
+	authService service.AuthService
 }
 
-func NewHandler(service *service.Service) *Handler {
-	return &Handler{service: service}
+func NewHandler(authService service.AuthService) *Handler {
+	return &Handler{authService: authService}
 }
 
 func (h *Handler) Signup(c *gin.Context) {
@@ -24,9 +25,22 @@ func (h *Handler) Signup(c *gin.Context) {
 		return
 	}
 
-	status, err := h.service.Signup(req)
+	user := model.User{
+		Name: req.Name,
+		Family: req.Family,
+		Email:    req.Email,
+		PhoneNumber: req.PhoneNumber,
+		Birthday: req.Birthday,
+		Address: req.Address,
+	}
+
+	status, err := h.authService.Signup(c.Request.Context(), user, req.Password)
 	if err != nil {
 		c.JSON(status, gin.H{"error": fmt.Sprintf("Signup failed: %s", err.Error())})
 		return
 	}
+
+	c.JSON(http.StatusCreated, gin.H{
+		"message": "user created successfully",
+	})
 }

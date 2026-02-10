@@ -1,6 +1,8 @@
 package repository
 
 import (
+	"context"
+
 	"github.com/romina-kh/NetEng-Project/backend/internal/db"
 	"github.com/romina-kh/NetEng-Project/backend/internal/model"
 )
@@ -15,6 +17,6 @@ func NewRepository(db *db.PostgressDB) *PostgressRepo {
 	}
 }
 
-func (r *PostgressRepo) Signup(model.User) error {
+func (r *PostgressRepo) CreateUser(ctx context.Context, user model.User) error {
 	return nil
 }
