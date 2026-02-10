@@ -44,3 +44,7 @@ func (h *Handler) Signup(c *gin.Context) {
 		"message": "user created successfully",
 	})
 }
+
+func (h *Handler) Login(c *gin.Context){
+	
+}
