@@ -12,8 +12,7 @@ type SignupRequest struct {
 
 
 type LoginRequest struct {
-	Email		string	`json:"email"`
-	PhoneNumber string	`json:"phone_number"`
+	Identifier string	`json:"identifier" binding:"required"`
 	Password	string	`json:"password" binding:"required,min=8"`
 }
 

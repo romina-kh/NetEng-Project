@@ -46,5 +46,25 @@ func (h *Handler) Signup(c *gin.Context) {
 }
 
 func (h *Handler) Login(c *gin.Context){
-	
+	var req dto.LoginRequest
+	if err := c.ShouldBindJSON(&req); err != nil {
+		c.JSON(http.StatusBadRequest, dto.ErrorResponse{
+			Error: "request failed!",
+		})
+		return
+	}
+
+
+	//user 
+	_, err := h.service.Login(c.Request.Context(), req.Identifier, req.Password)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, dto.ErrorResponse{Error: err.Error()})
+		return
+	}
+	//TODO jwt should be created
+
+	c.JSON(http.StatusOK, dto.LoginResponse{
+		Message: "you are logged in successfully", 
+		Token: "",
+	})
 }
