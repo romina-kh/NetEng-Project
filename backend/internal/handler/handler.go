@@ -11,11 +11,11 @@ import (
 )
 
 type Handler struct {
-	authService service.AuthService
+	service service.Service
 }
 
-func NewHandler(authService service.AuthService) *Handler {
-	return &Handler{authService: authService}
+func NewHandler(service service.Service) *Handler {
+	return &Handler{service: service}
 }
 
 func (h *Handler) Signup(c *gin.Context) {
@@ -34,7 +34,7 @@ func (h *Handler) Signup(c *gin.Context) {
 		Address: req.Address,
 	}
 
-	status, err := h.authService.Signup(c.Request.Context(), user, req.Password)
+	status, err := h.service.Signup(c.Request.Context(), user, req.Password)
 	if err != nil {
 		c.JSON(status, gin.H{"error": fmt.Sprintf("Signup failed: %s", err.Error())})
 		return
