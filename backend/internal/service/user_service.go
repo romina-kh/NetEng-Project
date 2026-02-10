@@ -57,3 +57,9 @@ func (s *userservice) Signup(ctx context.Context, user model.User, password stri
 
 	return http.StatusCreated, nil
 }
+
+
+func (s *userservice) login(ctx context.Context, username string, password string) (int, error) {
+	return 0, nil
+
+}
