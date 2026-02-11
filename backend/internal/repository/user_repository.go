@@ -30,3 +30,8 @@ func (r *userRepository) ExistsByPhonenumber(ctx context.Context, email string) 
 
 	return false,nil
 }
+func (r *userRepository) GetByEmailOrPhone(ctx context.Context, identifier string) (*model.User, error) {
+
+	return nil, nil
+}
+
