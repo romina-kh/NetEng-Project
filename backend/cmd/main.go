@@ -17,7 +17,7 @@ func main() {
 		log.Fatal("Failed to load config:", err)
 	}
 
-	postgressdb := db.NewPostgressDB(cfg)
+	postgressdb := db.NewPostgressDB(cfg.Postgres)
 	repo := repository.NewUserRepository(postgressdb)
 	service := service.NewUserService(repo)
 	handler := handler.NewHandler(service)
