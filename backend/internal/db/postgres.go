@@ -15,13 +15,14 @@ var (
 	mu sync.Mutex
 )
 
-func NewPostgressDB(cfg *PostGresConfig) *gorm.DB {
+func NewPostgresDB(cfg *PostGresConfig) *gorm.DB {
+	mu.Lock()
+	defer mu.Unlock()
+
 	if db != nil {
 		return db
 	}
 
-	mu.Lock()
-	defer mu.Unlock()
 
 	dsn := fmt.Sprintf(
 		"host=%s user=%s password=%s dbname=%s port=%s sslmode=disable",
@@ -35,6 +36,15 @@ func NewPostgressDB(cfg *PostGresConfig) *gorm.DB {
 	database, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	if err != nil {
 		log.Fatalf("Failed to connect database: %v", err)
+	}
+
+	sqlDB, err := database.DB()
+	if err != nil {
+		log.Fatalf("failed to get sql db: %v", err)
+	}
+
+	if err := sqlDB.Ping(); err != nil {
+		log.Fatalf("failed to ping database: %v", err)
 	}
 
 	db = database

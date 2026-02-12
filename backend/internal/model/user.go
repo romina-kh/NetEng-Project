@@ -3,16 +3,16 @@ package model
 import "errors"
 
 type User struct {
-	ID           int     `json:"id"`
-	Name         string  `json:"name"`
-	Family       string  `json:"family"`
-	Email        string  `json:"email"`
-	PhoneNumber  string  `json:"phone_number"`
-	PasswordHash string  `json:"password"`
-	Birthday     string  `json:"birthday"`
-	Address      string  `json:"address"`
-	Wallet       float64 `json:"wallet"`
-	Avatar       string  `json:"avatar"`
+	Name         string  
+	ID           int     
+	Family       string  
+	Email        string  `gorm:"uniqueIndex"`
+	PhoneNumber  string  `gorm:"uniqueIndex"`
+	PasswordHash string  
+	Birthday     string  
+	Address      string  
+	Wallet       float64 
+	Avatar       string  
 }
 
 var (
