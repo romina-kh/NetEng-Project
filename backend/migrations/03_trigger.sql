@@ -30,10 +30,15 @@ DECLARE
     user_wallet_amount DECIMAL (15, 2);
 BEGIN
 
-    UPDATE users AS u
-    SET u.wallet = wallet - NEW.total_price;
-    WHERE u.user_id = NEW.user_id
-    AND u.wallet >= NEW.total_price;
+    -- UPDATE users AS u
+    -- SET u.wallet = wallet - NEW.total_price;
+    -- WHERE u.user_id = NEW.user_id
+    -- AND u.wallet >= NEW.total_price;
+
+    UPDATE users
+    SET wallet = wallet - NEW.total_price
+    WHERE user_id = NEW.user_id
+    AND wallet >= NEW.total_price;
 
     IF NOT FOUND THEN
         RAISE EXCEPTION 'your balance is insufficient';

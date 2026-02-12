@@ -50,7 +50,7 @@ INSERT INTO cart_item (user_id, cart_number, server_number, quantity, price_at_a
 
 -- سفارش منقضی شده (Expired) برای کاربر 2
 INSERT INTO orders (total_price, status, created_at, user_id) VALUES
-(800000.00, 'expired', NOW() - INTERVAL '1 month', 2);
+(500000.00, 'expired', NOW() - INTERVAL '1 month', 2);
 
 -- سفارش فعال (Active) برای کاربر 1 (ادمین هم می‌تواند خرید کند)
 INSERT INTO orders (total_price, status, created_at, user_id) VALUES

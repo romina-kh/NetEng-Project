@@ -1,14 +1,14 @@
-REVOKE CONNECT ON DATABASE techyar FROM public;
+-- REVOKE CONNECT ON DATABASE techyar FROM public;
 
-SELECT pg_terminate_backend(pid)
-FROM pg_stat_activity
-WHERE datname = 'techyar'
-  AND pid <> pg_backend_pid();
+-- SELECT pg_terminate_backend(pid)
+-- FROM pg_stat_activity
+-- WHERE datname = 'techyar'
+--   AND pid <> pg_backend_pid();
 
-DROP DATABASE IF EXISTS techyar;
-CREATE DATABASE techyar;
+-- DROP DATABASE IF EXISTS techyar;
+-- CREATE DATABASE techyar;
 
-\c techyar
+-- \c techyar
 -----------------------------------------------
 DROP TYPE IF EXISTS user_role CASCADE;
 CREATE TYPE user_role AS ENUM ('user', 'admin');
