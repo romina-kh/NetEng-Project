@@ -6,7 +6,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/romina-kh/NetEng-Project/backend/internal/dto"
-	"github.com/romina-kh/NetEng-Project/backend/utility"
+	utility "github.com/romina-kh/NetEng-Project/backend/internal/utils"
 )
 
 func JWTAuth() gin.HandlerFunc {

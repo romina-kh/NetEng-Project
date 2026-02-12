@@ -1,43 +1,42 @@
 package db
 
 import (
-	"database/sql"
 	"fmt"
 	"log"
 	"sync"
 
 	_ "github.com/lib/pq"
+	"gorm.io/driver/postgres"
+	"gorm.io/gorm"
 )
 
 var (
-	instanse *sql.DB
-	mu       sync.Mutex
+	db *gorm.DB
+	mu sync.Mutex
 )
 
-func NewPostgressDB(cfg *PostGresConfig) *sql.DB {
-	if instanse != nil {
-		return instanse
+func NewPostgressDB(cfg *PostGresConfig) *gorm.DB {
+	if db != nil {
+		return db
 	}
 
 	mu.Lock()
 	defer mu.Unlock()
 
-	connStr := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=disable",
-		cfg.Host, cfg.Port, cfg.User, cfg.Password, cfg.DBName)
+	dsn := fmt.Sprintf(
+		"host=%s user=%s password=%s dbname=%s port=%s sslmode=disable",
+		cfg.Host,
+		cfg.User,
+		cfg.Password,
+		cfg.DBName,
+		cfg.Port,
+	)
 
-	db, err := sql.Open("postgres", connStr)
+	database, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	if err != nil {
-		log.Printf("Failed to open database: %v", err)
-		return nil
+		log.Fatalf("Failed to connect database: %v", err)
 	}
 
-	if err := db.Ping(); err != nil {
-		log.Printf("Failed to ping database: %v", err)
-		return nil
-	}
-
-	instanse = db
-	log.Println("Database connected successfully")
-
-	return instanse
+	db = database
+	return db
 }

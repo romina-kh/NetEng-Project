@@ -9,7 +9,7 @@ import (
 	"github.com/romina-kh/NetEng-Project/backend/internal/dto"
 	"github.com/romina-kh/NetEng-Project/backend/internal/model"
 	"github.com/romina-kh/NetEng-Project/backend/internal/service"
-	"github.com/romina-kh/NetEng-Project/backend/utility"
+	utility "github.com/romina-kh/NetEng-Project/backend/internal/utils"
 )
 
 type Handler struct {
