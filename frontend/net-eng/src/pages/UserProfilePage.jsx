@@ -25,7 +25,7 @@ export default function Profile() {
     phone: "09123456789",
     address: "تهران - شریعتی - پلاک ۲",
     company: "تک‌یار",
-    avatar: "https://i.pravatar.cc/150?img=3"
+    avatar: "https://i.pravatar.cc/150?img=7"
   });
 
   const [tempUser, setTempUser] = useState(user);
@@ -35,54 +35,13 @@ export default function Profile() {
   };
 
   return (
-    <div className={styles.container}>
-
-      {/* shop */}
-      <div className={styles.shopContainer}>
-        <h3>داشبورد</h3>
-
-        <div className={styles.shopRow}>
-          <div className={styles.shopBox}>
-            <span>📦</span>
-            <div>
-              <h4>سفارش‌های من</h4>
-              <p>مشاهده و پیگیری سفارش‌ها</p>
-            </div>
-          </div>
-
-          <div className={styles.shopBox}>
-            <span>🛒</span>
-            <div>
-              <h4>سبد خرید</h4>
-              <p>کالاهای انتخاب شده</p>
-            </div>
-          </div>
-        </div>
-
-        <div className={styles.shopRow}>
-          <div className={styles.shopBox}>
-            <span>❤️</span>
-            <div>
-              <h4>علاقه‌مندی‌ها</h4>
-              <p>لیست محصولات ذخیره شده</p>
-            </div>
-          </div>
-
-          <div className={styles.shopBox}>
-            <span>💳</span>
-            <div>
-              <h4>کیف پول</h4>
-              <p>مدیریت موجودی حساب</p>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div className={styles.usercontainer}>
 
       {/* profile card */}
-      <div className={styles.card}>
+      <div className={styles.usercard}>
 
         {/* img */}
-        <div className={styles.avatarSection}>
+        <div className={styles.useravatar}>
           <img 
             src={user.avatar}
             alt="profile"
@@ -184,6 +143,47 @@ export default function Profile() {
           ))}
         </div>
 
+      </div>
+
+      {/* shop */}
+      <div className={styles.shopContainer}>
+        <h3>داشبورد</h3>
+
+        <div className={styles.shopRow}>
+          <div className={styles.shopBox}>
+            <span>📦</span>
+            <div>
+              <h4>سفارش‌های من</h4>
+              <p>مشاهده و پیگیری سفارش‌ها</p>
+            </div>
+          </div>
+
+          <div className={styles.shopBox}>
+            <span>🛒</span>
+            <div>
+              <h4>سبد خرید</h4>
+              <p>کالاهای انتخاب شده</p>
+            </div>
+          </div>
+        </div>
+
+        <div className={styles.shopRow}>
+          <div className={styles.shopBox}>
+            <span>❤️</span>
+            <div>
+              <h4>علاقه‌مندی‌ها</h4>
+              <p>لیست محصولات ذخیره شده</p>
+            </div>
+          </div>
+
+          <div className={styles.shopBox}>
+            <span>💳</span>
+            <div>
+              <h4>کیف پول</h4>
+              <p>مدیریت موجودی حساب</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
