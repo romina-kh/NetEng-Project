@@ -1,0 +1,112 @@
+.adminContainer {
+  min-height: 100vh;
+  background: #213448;
+background: linear-gradient(90deg, rgba(33, 52, 72, 0.8) 0%, rgba(84, 119, 146, 0.8) 35%, rgba(148, 180, 193, 0.8) 100%);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 25px;
+  color: white;
+}
+
+.Containers {
+  min-height: 100vh;
+  background: #0f0f14;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 25px;
+  color: white;
+}
+
+/* Profile*/
+.profileCard {
+  background: #213448;
+  padding: 30px;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+  box-shadow: 0 0 25px #EAE0CF;
+}
+
+.avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  border: 4px solid #EAE0CF;
+}
+
+
+/* Cards */
+.card {
+  background: #94B4C1;
+  padding: 25px;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+
+.maincard{
+background: #547792;
+  padding: 25px;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 0 20px #213448;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card h3 {
+  margin-bottom: 10px;
+}
+
+input {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background: #213448;
+  color: white;
+}
+
+button {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background: #6594B1;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #a855f7;
+}
+
+.listItem {
+  padding: 8px;
+  color: #213448;
+  background: #EAE0CF;
+  border-radius: 8px;
+}
+
+.empty {
+  opacity: 0.5;
+  font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .profileCard,
+  .card {
+    max-width: 100%;
+  }
+}
