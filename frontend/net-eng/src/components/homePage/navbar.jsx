@@ -37,7 +37,7 @@ function NavBar() {
           <a href="/login">
             <h3>ورود / ثبت نام</h3>
           </a>
-          <a href="#product">
+          <a href="/product">
             <h3>محصولات</h3>
           </a>
           <a href="#contact">
