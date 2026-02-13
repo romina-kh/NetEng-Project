@@ -25,37 +25,38 @@ export default function AdminProfile() {
   return (
 
     <div className={styles.adminContainer}>
-      {/* Admin Info */}
-      <div className={styles.profileCard}>
+      {/* Info */}
+      <div className={styles.adminprofileCard}>
         <img
           src="https://i.pravatar.cc/150?img=3"
           alt="admin"
-          className={styles.avatar}
+          className={styles.adminavatar}
         />
-        <h2>Admin Name</h2>
+        <h2>بهرام باقری</h2>
         <p>admin@email.com</p>
-        <span>Super Admin</span>
+        <span>ادمین اصلی</span>
       </div>
 
       {/* Add Store */}
       <div className={styles.maincard}>
-        <h3>Add Store</h3>
+        <h3>اضافه کردن فروشگاه</h3>
         <input
+          className={styles.admin_input}
           type="text"
-          placeholder="Store Name"
+          placeholder="نام فروشگاه مدنظر را وارد کنید"
           value={storeName}
           onChange={(e) => setStoreName(e.target.value)}
         />
-        <button onClick={handleAddStore}>Add Store</button>
+        <button className={styles.adminbutton} onClick={handleAddStore}>اضافه کردن</button>
 
          {/* Stores List */}
-        <div className={styles.card}>
-            <h3>Stores</h3>
+        <div className={styles.admincard}>
+            <h3>لیست فروشگاه ها</h3>
             {stores.length === 0 ? (
-            <p className={styles.empty}>No stores added</p>
+            <p className={styles.empty}>هیچ فروشگاهی اضافه نشده است</p>
             ) : (
             stores.map((store, index) => (
-                <div key={index} className={styles.listItem}>
+                <div key={index} className={styles.adminlistItem}>
                 {store}
                 </div>
             ))
@@ -65,38 +66,36 @@ export default function AdminProfile() {
 
       {/* Add Product */}
       <div className={styles.maincard}>
-        <h3>Add Product</h3>
+        <h3>اضافه کردن محصول</h3>
         <input
+          className={styles.admin_input}
           type="text"
-          placeholder="Product Name"
+          placeholder="نام محصول مدنظر را وارد کنید"
           value={productName}
           onChange={(e) => setProductName(e.target.value)}
         />
-        <input
+        <input 
+          className={styles.admin_input}
           type="number"
-          placeholder="Price"
+          placeholder="مبلغ"
           value={productPrice}
           onChange={(e) => setProductPrice(e.target.value)}
         />
-        <button onClick={handleAddProduct}>Add Product</button>
+        <button className={styles.adminbutton} onClick={handleAddProduct}>اضافه کردن</button>
         {/* Products List */}
-        <div className={styles.card}>
-            <h3>Products</h3>
+        <div className={styles.admincard}>
+            <h3>لیست محصولات</h3>
             {products.length === 0 ? (
-            <p className={styles.empty}>No products added</p>
+            <p className={styles.empty}>هیچ محصولی اضافه نشده است</p>
             ) : (
             products.map((product, index) => (
-                <div key={index} className={styles.listItem}>
+                <div key={index} className={styles.adminlistItem}>
                 {product.name} - ${product.price}
                 </div>
             ))
             )}
         </div>
       </div>
-
-     
-
-      
     </div>
   );
 }

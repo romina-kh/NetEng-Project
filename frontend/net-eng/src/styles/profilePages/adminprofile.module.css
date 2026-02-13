@@ -1,18 +1,8 @@
 .adminContainer {
   min-height: 100vh;
   background: #213448;
-background: linear-gradient(90deg, rgba(33, 52, 72, 0.8) 0%, rgba(84, 119, 146, 0.8) 35%, rgba(148, 180, 193, 0.8) 100%);
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 25px;
-  color: white;
-}
-
-.Containers {
-  min-height: 100vh;
-  background: #0f0f14;
-  padding: 40px 20px;
+  background: linear-gradient(90deg, rgba(33, 52, 72, 0.9) 0%,
+   rgba(84, 119, 146, 0.8) 35%, rgba(148, 180, 193, 0.7) 100%);
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -21,27 +11,29 @@ background: linear-gradient(90deg, rgba(33, 52, 72, 0.8) 0%, rgba(84, 119, 146, 
 }
 
 /* Profile*/
-.profileCard {
+.adminprofileCard {
   background: #213448;
   padding: 30px;
-  border-radius: 16px;
+  border-radius: 30px;
   width: 100%;
-  max-width: 500px;
+  max-width: 400px;
   text-align: center;
   box-shadow: 0 0 25px #EAE0CF;
+  margin-left: 20px;
+  margin-right: 40px;
 }
 
-.avatar {
+.adminavatar {
   width: 120px;
   height: 120px;
   border-radius: 50%;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   border: 4px solid #EAE0CF;
 }
 
 
 /* Cards */
-.card {
+.admincard {
   background: #94B4C1;
   padding: 25px;
   border-radius: 16px;
@@ -50,6 +42,7 @@ background: linear-gradient(90deg, rgba(33, 52, 72, 0.8) 0%, rgba(84, 119, 146, 
   display: flex;
   flex-direction: column;
   gap: 12px;
+  
 }
 
 
@@ -63,13 +56,20 @@ background: #547792;
   display: flex;
   flex-direction: column;
   gap: 12px;
+  margin-left: 40px;
+  margin-right: 20px;
 }
 
-.card h3 {
+.maincard:hover{
+  transform: translateY(10px);
+  transition:500ms;
+}
+
+.admincard h3 {
   margin-bottom: 10px;
 }
 
-input {
+.admin_input {
   padding: 10px;
   border-radius: 8px;
   border: none;
@@ -77,21 +77,21 @@ input {
   color: white;
 }
 
-button {
+.adminbutton {
   padding: 10px;
   border-radius: 8px;
   border: none;
-  background: #6594B1;
+  background: #72a4c3;
   color: white;
   cursor: pointer;
   transition: 0.3s;
 }
 
-button:hover {
-  background: #a855f7;
+.adminbutton:hover {
+  background: #91c8d9;
 }
 
-.listItem {
+.adminlistItem {
   padding: 8px;
   color: #213448;
   background: #EAE0CF;
