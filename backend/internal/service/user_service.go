@@ -4,6 +4,7 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"time"
 
 	"github.com/romina-kh/NetEng-Project/backend/internal/model"
 	"github.com/romina-kh/NetEng-Project/backend/internal/repository"
@@ -21,19 +22,14 @@ func NewUserService(repo repository.UserRepository) UserService {
 func (s *userservice) Signup(ctx context.Context, user model.User, password string) (int, error) {
 	mailExists, err := s.repo.ExistsByEmail(ctx, user.Email)
 	if err != nil {
-		//log.Printf("signup error: %v", err)
-		//return http.StatusInternalServerError, errors.New("Registration error")
 		return 0, fmt.Errorf("service-Signup: check email existence: %w", err)
 	}
 	if mailExists {
-		//return http.StatusConflict, errors.New("user already exists")
 		return 0, fmt.Errorf("service-Signup: email already taken: %w", model.ErrEmailAlreadyExists)
 	}
 
-	phoneExists, err := s.repo.ExistsByPhonenumber(ctx, user.PhoneNumber)
+	phoneExists, err := s.repo.ExistsByPhoneNumber(ctx, user.PhoneNumber)
 	if err != nil {
-		//log.Printf("signup error: %v", err)
-		//return http.StatusInternalServerError, errors.New("Registration error")
 		return 0, fmt.Errorf("service-Signup: check phone existence: %w", err)
 	}
 	if phoneExists {
@@ -47,14 +43,13 @@ func (s *userservice) Signup(ctx context.Context, user model.User, password stri
 		bcrypt.DefaultCost,
 	)
 	if err != nil {
-		//log.Printf("signup error: %v", err)
-		//return http.StatusInternalServerError, errors.New("Registration error")
 		return 0, fmt.Errorf("service-Signup: failed to generate hash: %w", err)
 	}
 
 	user.PasswordHash = string(hash)
+	user.CreatedAt = time.Now()
 
-	id, err := s.repo.CreateUser(ctx, user)
+	id, err := s.repo.CreateUser(ctx, &user)
 	if err != nil {
 		return 0, fmt.Errorf("service-Signup: create user: %w", err)
 	}

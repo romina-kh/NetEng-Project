@@ -13,7 +13,7 @@ func LoadConfig() (*Config, error) {
 	}
 
 	config.Postgres.Host = GetEnv("DB_HOST", "localhost")
-	config.Postgres.User = GetEnv("DB_USER", "neteng")
+	config.Postgres.User = GetEnv("DB_USER", "postgres")
 	config.Postgres.Password = GetEnv("DB_PASSWORD", "netengpass")
 	config.Postgres.DBName = GetEnv("DB_NAME", "techyar")
 	config.Postgres.Port = GetEnv("DB_PORT", "5432")

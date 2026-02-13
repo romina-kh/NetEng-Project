@@ -1,18 +1,23 @@
 package model
 
-import "errors"
+import (
+	"errors"
+	"time"
+)
 
 type User struct {
-	Name         string  
-	ID           int     
-	Family       string  
-	Email        string  `gorm:"uniqueIndex"`
-	PhoneNumber  string  `gorm:"uniqueIndex"`
-	PasswordHash string  
-	Birthday     string  
-	Address      string  
-	Wallet       float64 
-	Avatar       string  
+	Name         string
+	ID           int 		`gorm:"column:user_id"`
+	Family       string
+	CreatedAt    time.Time
+	Role		 string
+	Email        string 	`gorm:"uniqueIndex"`
+	PhoneNumber  string 	`gorm:"uniqueIndex"`
+	PasswordHash string 	`gorm:"column:password"`
+	Birthday     string
+	Address      string
+	Wallet       float64
+	Avatar       string
 }
 
 var (

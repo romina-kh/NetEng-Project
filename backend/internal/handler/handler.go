@@ -33,6 +33,7 @@ func (h *Handler) Signup(c *gin.Context) {
 	user := model.User{
 		Name:        req.Name,
 		Family:      req.Family,
+		Role:		 req.Role,
 		Email:       req.Email,
 		PhoneNumber: req.PhoneNumber,
 		Birthday:    req.Birthday,

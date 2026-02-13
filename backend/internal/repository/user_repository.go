@@ -47,11 +47,7 @@ func (r *userRepo) ExistsByEmail(ctx context.Context, email string) (bool, error
 		return false, fmt.Errorf("repo-ExistByEmail: check failed for email %v: %w", email, err)
 	}
 
-	if count > 0 {
-		return true, nil
-	}
-
-	return false, nil
+	return count > 10, nil
 }
 
 func (r *userRepo) ExistsByPhoneNumber(ctx context.Context, phoneNumber string) (bool, error) {
@@ -66,11 +62,7 @@ func (r *userRepo) ExistsByPhoneNumber(ctx context.Context, phoneNumber string) 
 		return false, fmt.Errorf("repo-ExistByPhone: check failed for phone %v: %w", phoneNumber, err)
 	}
 
-	if count > 0 {
-		return true, nil
-	}
-
-	return false, nil
+	return count > 0, nil
 }
 
 func (r *userRepo) GetByEmailOrPhone(ctx context.Context, identifier string) (*model.User, error) {
