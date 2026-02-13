@@ -1,11 +1,12 @@
 package service
 
-import "github.com/romina-kh/NetEng-Project/backend/internal/repository"
+import (
+	"context"
 
-type Service struct {
-	postgressRepo *repository.Repository
-}
+	"github.com/romina-kh/NetEng-Project/backend/internal/model"
+)
 
-func NewService(repo *repository.Repository) *Service {
-	return &Service{postgressRepo: repo}
+type UserService interface {
+	Signup(ctx context.Context, user model.User, password string) (int, error)
+	Login(ctx context.Context, identifier string, password string) (*model.User, error)
 }

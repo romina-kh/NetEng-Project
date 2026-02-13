@@ -2,7 +2,7 @@
 
 ------------------------------------
 
-CREATE EXTENSION IF NOT EXISTS pg_cron;
+-- CREATE EXTENSION IF NOT EXISTS pg_cron;
 
 
 CREATE PROCEDURE set_order(curr_user_id INT)
@@ -49,8 +49,8 @@ END;
 $$;
 
 
-SELECT cron.schedule(
-   'release-expired-servers',
-   '*/5 * * * *',
-   $$CALL update_order_status();$$
-);
+-- SELECT cron.schedule(
+--    'release-expired-servers',
+--    '*/5 * * * *',
+--    $$CALL update_order_status();$$
+-- );

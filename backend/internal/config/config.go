@@ -1,8 +1,22 @@
 package config
 
+import "github.com/romina-kh/NetEng-Project/backend/internal/db"
+
 type Config struct {
+	Postgres *db.PostGresConfig
 }
 
 func LoadConfig() (*Config, error) {
-	return nil, nil
+
+	config := Config{
+		Postgres: &db.PostGresConfig{},
+	}
+
+	config.Postgres.Host = GetEnv("DB_HOST", "localhost")
+	config.Postgres.User = GetEnv("DB_USER", "neteng")
+	config.Postgres.Password = GetEnv("DB_PASSWORD", "netengpass")
+	config.Postgres.DBName = GetEnv("DB_NAME", "techyar")
+	config.Postgres.Port = GetEnv("DB_PORT", "5432")
+
+	return &config, nil
 }
