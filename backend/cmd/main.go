@@ -18,9 +18,15 @@ func main() {
 	}
 
 	postgressdb := db.NewPostgresDB(cfg.Postgres)
-	repo := repository.NewuserRepo(postgressdb)
-	service := service.NewUserService(repo)
-	handler := handler.NewHandler(service)
 
-	server.StartServer(handler)
+	userRepo := repository.NewuserRepo(postgressdb)
+	producRepo := repository.NewProductRepository(postgressdb)
+
+	userService := service.NewUserService(userRepo)
+	productService := service.NewProductService(producRepo)
+
+	userHandler := handler.NewHandler(userService)
+	productHandler := handler.NewProductHandler(productService)
+
+	server.StartServer(userHandler, productHandler)
 }
