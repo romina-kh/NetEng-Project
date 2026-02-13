@@ -12,3 +12,7 @@ type UserRepository interface {
 	ExistsByPhoneNumber(ctx context.Context, email string) (bool, error)
 	GetByEmailOrPhone(ctx context.Context, identifier string) (*model.User, error)
 }
+
+type ProductRepository interface {
+	GetAllServers() ([]model.Server, error)
+}

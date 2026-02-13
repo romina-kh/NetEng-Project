@@ -33,7 +33,6 @@ func (s *userservice) Signup(ctx context.Context, user model.User, password stri
 		return 0, fmt.Errorf("service-Signup: check phone existence: %w", err)
 	}
 	if phoneExists {
-		//return http.StatusConflict, errors.New("user already exists")
 		return 0, fmt.Errorf("service-Signup: phone already taken: %w", model.ErrPhoneAlreadyExists)
 	}
 
