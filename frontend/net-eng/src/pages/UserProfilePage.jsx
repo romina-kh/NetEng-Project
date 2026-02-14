@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "../styles/profilePages/userprofile.module.css"
+import styles from "../styles/profilePages/userprofile.module.css";
 
 export default function Profile() {
 
@@ -19,6 +19,21 @@ export default function Profile() {
   const [theme, setTheme] = useState("blue");
   const [isEditing, setIsEditing] = useState(false);
 
+  const [showPasswordBox, setShowPasswordBox] = useState(false);
+  const [showNotificationBox, setShowNotificationBox] = useState(false);
+
+  const [passwordData, setPasswordData] = useState({
+    oldPass: "",
+    newPass: "",
+    confirmPass: ""
+  });
+
+  const [notifications, setNotifications] = useState({
+    orderUpdates: true,
+    discounts: true,
+    newsletter: false
+  });
+
   const [user, setUser] = useState({
     name: "عباس قادری",
     email: "abbas.ghaderi@gmail.com",
@@ -34,6 +49,29 @@ export default function Profile() {
     setTempUser({ ...tempUser, [e.target.name]: e.target.value });
   };
 
+  const handlePasswordChange = (e) => {
+    setPasswordData({ ...passwordData, [e.target.name]: e.target.value });
+  };
+
+  const handleSavePassword = () => {
+    if (
+      !passwordData.oldPass ||
+      !passwordData.newPass ||
+      passwordData.newPass !== passwordData.confirmPass
+    ) {
+      alert("اطلاعات رمز عبور صحیح نیست");
+      return;
+    }
+
+    alert("رمز عبور با موفقیت تغییر کرد");
+    setPasswordData({ oldPass: "", newPass: "", confirmPass: "" });
+    setShowPasswordBox(false);
+  };
+
+  const handleLogout = () => {
+    alert("خروج از حساب انجام شد");
+  };
+
   return (
     <div className={styles.usercontainer}>
 
@@ -42,7 +80,7 @@ export default function Profile() {
 
         {/* img */}
         <div className={styles.useravatar}>
-          <img 
+          <img
             src={user.avatar}
             alt="profile"
             style={{ borderColor: themes[theme] }}
@@ -65,10 +103,10 @@ export default function Profile() {
           ) : (
             <>
               <h2>{user.name}</h2>
-              <p>{user.email} ✉︎ </p>
+              <p>{user.email} ✉︎</p>
               <p>{user.phone} 🕻</p>
-              <p> 📍 {user.address}</p>
-              <p> 🌐 {user.company}</p>
+              <p>📍 {user.address}</p>
+              <p>🌐 {user.company}</p>
             </>
           )}
         </div>
@@ -100,7 +138,7 @@ export default function Profile() {
               </button>
             </>
           ) : (
-            <button 
+            <button
               className={styles.editBtn}
               style={{ background: themes[theme] }}
               onClick={() => {
@@ -113,18 +151,128 @@ export default function Profile() {
           )}
         </div>
 
-        {/* setting */}
+        {/* settings */}
         <div className={styles.settings}>
           <h3>تنظیمات حساب</h3>
-          <button style={{ background: themes[theme] }}>
+
+          <button
+            style={{ background: themes[theme] }}
+            onClick={() => setShowPasswordBox(!showPasswordBox)}
+          >
             تغییر رمز عبور
           </button>
-          <button style={{ background: themes[theme] }}>
+
+          {showPasswordBox && (
+            <div className={styles.userprofileSettingBox}>
+              <input
+                className={styles.userpasssetting}
+                type="password"
+                name="oldPass"
+                placeholder="رمز فعلی"
+                value={passwordData.oldPass}
+                onChange={handlePasswordChange}
+              />
+              <input
+                className={styles.userpasssetting}
+                type="password"
+                name="newPass"
+                placeholder="رمز جدید"
+                value={passwordData.newPass}
+                onChange={handlePasswordChange}
+              />
+              <input
+                className={styles.userpasssetting}
+                type="password"
+                name="confirmPass"
+                placeholder="تکرار رمز جدید"
+                value={passwordData.confirmPass}
+                onChange={handlePasswordChange}
+              />
+
+              <div className={styles.userprofilePasswordActions}>
+                <button
+                  className={styles.saveBtn}
+                  style={{ background: themes[theme] }}
+                  onClick={handleSavePassword}
+                >
+                  ذخیره رمز
+                </button>
+
+                <button
+                  className={styles.cancelBtn}
+                  style={{ background: themes[theme] }}
+                  onClick={() => {
+                    setPasswordData({
+                      oldPass: "",
+                      newPass: "",
+                      confirmPass: ""
+                    });
+                    setShowPasswordBox(false);
+                  }}
+                >
+                  انصراف
+                </button>
+              </div>
+            </div>
+          )}
+
+          <button
+            style={{ background: themes[theme] }}
+            onClick={() => setShowNotificationBox(!showNotificationBox)}
+          >
             مدیریت اعلان‌ها
           </button>
-          <button 
+
+          {showNotificationBox && (
+            <div className={styles.userprofileSettingBox}>
+              <label className={styles.userprofileNotificationLabel}>
+                <input
+                  type="checkbox"
+                  checked={notifications.orderUpdates}
+                  onChange={() =>
+                    setNotifications({
+                      ...notifications,
+                      orderUpdates: !notifications.orderUpdates
+                    })
+                  }
+                />
+                اعلان وضعیت سفارش‌ها
+              </label>
+
+              <label className={styles.userprofileNotificationLabel}>
+                <input
+                  type="checkbox"
+                  checked={notifications.discounts}
+                  onChange={() =>
+                    setNotifications({
+                      ...notifications,
+                      discounts: !notifications.discounts
+                    })
+                  }
+                />
+                اعلان تخفیف‌ها
+              </label>
+
+              <label className={styles.userprofileNotificationLabel}>
+                <input
+                  type="checkbox"
+                  checked={notifications.newsletter}
+                  onChange={() =>
+                    setNotifications({
+                      ...notifications,
+                      newsletter: !notifications.newsletter
+                    })
+                  }
+                />
+                خبرنامه ایمیلی
+              </label>
+            </div>
+          )}
+
+          <button
             className={styles.logout}
             style={{ background: themes[theme] }}
+            onClick={handleLogout}
           >
             خروج از حساب
           </button>
@@ -146,7 +294,13 @@ export default function Profile() {
       </div>
 
       {/* shop */}
-      <div className={styles.shopContainer}>
+      <div
+        className={styles.shopContainer}
+        style={{
+          borderColor: themes[theme],
+          backgroundColor: `${themes[theme]}15`
+        }}
+      >
         <h3>داشبورد</h3>
 
         <div className={styles.shopRow}>

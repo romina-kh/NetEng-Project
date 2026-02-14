@@ -1,6 +1,7 @@
 .usercontainer {
-  background: #EFE9E3;
-  background: radial-gradient(circle, rgba(239, 233, 227, 0.3) 0%, rgba(201, 181, 156, 0.3) 100%);
+  background: radial-gradient(circle,
+      rgba(239,233,227,0.3) 0%,
+      rgba(201,181,156,0.3) 100%);
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -21,7 +22,7 @@
   gap: 20px;
 }
 
-/* img */
+/* avatar */
 .useravatar {
   display: flex;
   flex-direction: column;
@@ -33,198 +34,129 @@
   width: 120px;
   height: 120px;
   border-radius: 50%;
-  object-fit: cover;
   border: 4px solid #27548A;
 }
 
-.changePhoto {
-  font-size: 12px;
-  background: none;
-  border: none;
-  color: #27548A;
-  cursor: pointer;
+.changePhoto { 
+  font-size: 12px; 
+  background: none; 
+  border: none; 
+  color: #27548A; 
+  cursor: pointer; 
 }
-
 /* info */
-.infoSection {
-  text-align: center;
-}
-
-.infoSection h2 {
-  margin-bottom: 8px;
-  color: #123458;
-}
-
-.infoSection p {
-  margin: 4px 0;
-  color: #555;
-}
+.infoSection { text-align:center; }
 
 .infoSection input {
-  width: 100%;
-  height: 40px;
-  border-radius: 20px;
-  border: 1px solid #ccc;
-  padding: 0 15px;
-  text-align: right;
-  margin-bottom: 8px;
+  width:100%;
+  height:40px;
+  border-radius:20px;
+  border:1px solid #ccc;
+  padding:0 15px;
+  margin-bottom:8px;
 }
 
-/* button */
+/* buttons */
 .actions {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
+  display:flex;
+  justify-content:center;
+  gap:10px;
 }
 
-.editBtn,
-.saveBtn {
-  color: white;
-  border: none;
-  padding: 8px 18px;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: 0.3s;
+.editBtn,.saveBtn,.cancelBtn {
+  color:white;
+  border:none;
+  padding:8px 18px;
+  border-radius:20px;
+  cursor:pointer;
 }
 
-.editBtn:hover,
-.saveBtn:hover {
-  background: #1d3f66;
-}
-
-.cancelBtn {
-  color: #F1EFEC;
-  border: none;
-  padding: 8px 18px;
-  border-radius: 20px;
-  cursor: pointer;
-}
-
+/* settings */
 .settings {
-  margin-top: 10px;
-  border-top: 1px solid #eee;
-  padding-top: 15px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.settings h3 {
-  font-size: 14px;
-  margin-bottom: 5px;
-  display: center;
- 
+  border-top:1px solid #eee;
+  padding-top:15px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
 }
 
 .settings button {
-  background:#27548A;
-  color: #F1EFEC;
-  border: none;
-  padding: 8px;
-  border-radius: 15px;
-  cursor: pointer;
-}
-
-.settings button:hover {
-  box-shadow: #b6bdc6 0 0 0 2px, transparent 0 0 0 0;
-}
-
-
-/* mobile*/
-@media (max-width: 480px) {
-  .card {
-    padding: 20px;
-  }
-
-  .avatarSection img {
-    width: 90px;
-    height: 90px;
-  }
+  color:#F1EFEC;
+  border:none;
+  padding:8px;
+  border-radius:15px;
+  cursor:pointer;
 }
 
 /* theme */
-
 .themeSelector {
-  margin-top: 15px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.themeSelector p {
-  font-size: 13px;
-  color: #777;
+  display:flex;
+  align-items:center;
+  gap:8px;
 }
 
 .colorCircle {
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  cursor: pointer;
-  display: inline-block;
-  margin: 0 4px;
-  transition: transform 0.2s;
+  width:22px;
+  height:22px;
+  border-radius:50%;
+  cursor:pointer;
 }
 
-.colorCircle:hover {
-  transform: scale(1.2);
-}
-
+/* shop */
 .shopContainer {
-  width: 100%;
-  margin: 40px 20px 40px 40px;
-  background: #ffffff;
-  border-radius: 18px;
-  padding: 30px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
-}
-
-.shopContainer h3 {
-  margin-bottom: 25px;
-  font-size: 20px;
-  text-align: right;
+  width:100%;
+  margin:40px 20px 40px 40px;
+  border-radius:18px;
+  padding:30px;
+  border:2px solid transparent;
+  transition:0.3s;
 }
 
 .shopRow {
-  display: flex;
-  gap: 20px;
-  margin-bottom: 20px;
+  display:flex;
+  gap:20px;
+  margin-bottom:20px;
 }
 
 .shopBox {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  background: #f5f5f5;
-  padding: 20px;
-  border-radius: 14px;
-  cursor: pointer;
-  transition: 0.3s ease;
+  flex:1;
+  background:#f5f5f5;
+  padding:20px;
+  border-radius:14px;
+  display:flex;
+  gap:15px;
 }
 
-.shopBox span {
-  font-size: 28px;
+/* settings custom */
+.userprofileSettingBox {
+  margin-top:12px;
+  padding:12px;
+  background:#f5f5f5;
+  border-radius:12px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
 }
 
-.shopBox h4 {
-  margin: 0;
-  font-size: 16px;
+.userprofilePasswordActions {
+  display:flex;
+  justify-content:center;
+  gap:10px;
 }
 
-.shopBox p {
-  margin: 4px 0 0;
-  font-size: 13px;
-  color: #666;
+.userprofileNotificationLabel {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:14px;
 }
 
-.shopBox:hover {
-  transform: translateY(-4px);
-  background: #eef2ff;
-}
 
-@media (max-width: 768px) {
-  .shopRow {
-    flex-direction: column;
-  }
+.userpasssetting{
+  width:100%;
+  height:40px;
+  border-radius:20px;
+  border:1px solid #ccc;
+  padding:0 15px;
+  margin-bottom:8px;
 }
