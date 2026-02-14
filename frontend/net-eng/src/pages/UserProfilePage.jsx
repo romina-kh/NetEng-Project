@@ -76,7 +76,11 @@ export default function Profile() {
     <div className={styles.usercontainer}>
 
       {/* profile card */}
-      <div className={styles.usercard}>
+      <div 
+        className={styles.usercard}
+        style={{ borderColor: `${themes[theme]}` }}
+        
+      >
 
         {/* img */}
         <div className={styles.useravatar}>
@@ -298,7 +302,7 @@ export default function Profile() {
         className={styles.shopContainer}
         style={{
           borderColor: themes[theme],
-          backgroundColor: `${themes[theme]}15`
+          backgroundColor: `${themes[theme]}20`
         }}
       >
         <h3>داشبورد</h3>
