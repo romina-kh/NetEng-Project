@@ -1,12 +1,15 @@
 package router
 
 import (
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"github.com/romina-kh/NetEng-Project/backend/internal/handler"
 )
 
 func SetupRouter(uh *handler.Handler, ph *handler.ProductHandler) *gin.Engine {
 	r := gin.Default()
+
+	r.Use(cors.Default())
 
 	api := r.Group("/api/v1")
 
