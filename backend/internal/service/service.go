@@ -10,3 +10,7 @@ type UserService interface {
 	Signup(ctx context.Context, user model.User, password string) (int, error)
 	Login(ctx context.Context, identifier string, password string) (*model.User, error)
 }
+
+type ProductService interface {
+	GetServers() ([]model.Server, error)
+}

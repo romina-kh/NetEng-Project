@@ -1,17 +1,24 @@
 package router
 
 import (
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"github.com/romina-kh/NetEng-Project/backend/internal/handler"
 )
 
-func SetupRouter(h *handler.Handler) *gin.Engine {
+func SetupRouter(uh *handler.Handler, ph *handler.ProductHandler) *gin.Engine {
 	r := gin.Default()
 
-	user := r.Group("/user")
+	r.Use(cors.Default())
 
-	user.POST("/signup", h.Signup)
-	user.POST("/login", h.Login)
+	api := r.Group("/api/v1")
+
+	user := api.Group("/user")
+	user.POST("/signup", uh.Signup)
+	user.POST("/login", uh.Login)
+
+	product := api.Group("/product")
+	product.GET("/servers", ph.GetServers)
 
 	return r
 }
