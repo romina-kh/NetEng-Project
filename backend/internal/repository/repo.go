@@ -14,5 +14,6 @@ type UserRepository interface {
 }
 
 type ProductRepository interface {
-	GetAllServers() ([]model.Server, error)
+	GetAllServers() ([]*model.Server, error)
+	GetServerByID(ctx context.Context, serverID int) (*model.Server, error)
 }
