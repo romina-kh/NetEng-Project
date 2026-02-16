@@ -1,5 +1,7 @@
 package model
 
+import "errors"
+
 type Server struct {
 	ServerNumber uint
 	IP           string
@@ -8,3 +10,7 @@ type Server struct {
 	OS           string
 	Storage      string
 }
+
+var (
+	ErrServerNotFound = errors.New("server not found")
+)
