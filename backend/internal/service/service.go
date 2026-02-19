@@ -12,5 +12,6 @@ type UserService interface {
 }
 
 type ProductService interface {
-	GetServers() ([]model.Server, error)
+	GetServers() ([]*model.Server, error)
+	GetServer(ctx context.Context, id int) (*model.Server, error)
 }
