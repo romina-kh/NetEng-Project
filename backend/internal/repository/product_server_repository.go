@@ -33,7 +33,7 @@ func (r *productRepository) GetAllServers() ([]*model.Server, error) {
 func (r *productRepository) GetServerByID(ctx context.Context, serverID int) (*model.Server, error) {
 
 	var server model.Server
-	result := r.db.WithContext(ctx).Model(&model.Server{}).Where("id = ?", serverID).Find(&server)
+	result := r.db.WithContext(ctx).Model(&model.Server{}).Where("server_number = ?", serverID).Find(&server)
 
 	if result.Error != nil {
 		if errors.Is(result.Error, gorm.ErrRecordNotFound) {

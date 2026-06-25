@@ -3,12 +3,12 @@ package model
 import "errors"
 
 type Server struct {
-	ServerNumber uint
-	IP           string
-	Picture      string
-	Price        float64
-	OS           string
-	Storage      string
+	ServerNumber uint    `json:"id"`
+	IP           string  `json:"ip"`
+	Picture      string  `json:"picture"`
+	Price        float64 `json:"price"`
+	OS           string  `json:"os"`
+	Storage      string  `json:"storage"`
 }
 
 var (

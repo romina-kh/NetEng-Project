@@ -2,7 +2,6 @@ package middleware
 
 import (
 	"net/http"
-	"strings"
 
 	"github.com/gin-gonic/gin"
 	"github.com/romina-kh/NetEng-Project/backend/internal/dto"
@@ -11,24 +10,23 @@ import (
 
 func JWTAuth() gin.HandlerFunc {
 	return func(c *gin.Context) {
-		authHeader := c.GetHeader("Authorization")
+		token, err := c.Cookie("auth_token")
 
-		if authHeader == "" {
+		if err != nil {
 			c.AbortWithStatusJSON(http.StatusUnauthorized, dto.ErrorResponse{
-				Error: "authorization header required",
+				Error: "authentication cookie required",
 			})
 			return
 		}
 
-		parts := strings.Split(authHeader, " ")
-		if len(parts) != 2 || parts[0] != "Bearer" {
+		if token == "" {
 			c.AbortWithStatusJSON(http.StatusUnauthorized, dto.ErrorResponse{
-				Error: "invalid authorization format",
+				Error: "authorization cookie required",
 			})
 			return
 		}
 
-		claims, err := utility.ParseJwtToken(parts[1])
+		claims, err := utility.ParseJwtToken(token)
 		if err != nil {
 			c.AbortWithStatusJSON(http.StatusUnauthorized, dto.ErrorResponse{
 				Error: "invalid or expired token",

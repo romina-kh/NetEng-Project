@@ -82,3 +82,31 @@ func (r *userRepo) GetByEmailOrPhone(ctx context.Context, identifier string) (*m
 
 	return &user, nil
 }
+
+func (r *userRepo) GetByUserID(ctx context.Context, userID int) (*model.User, error) {
+	var user model.User
+
+	err := r.db.WithContext(ctx).Where("user_id = ?", userID).First(&user).Error
+
+	if err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return nil, fmt.Errorf("repo-GetByID: user with %v: %w", userID, model.ErrUserNotFound)
+		}
+		return nil, fmt.Errorf("repo-GetByID: failed to execute query for user with %v: %w", userID, err)
+	}
+
+	return &user, nil
+}
+
+func (r *userRepo) UpdateUserProfile(ctx context.Context, updateUser *model.User, userID int) error {
+	result := r.db.WithContext(ctx).Where("user_id = ?", userID).Updates(updateUser)
+	if result.Error != nil {
+		return fmt.Errorf("repo-UpdateUserProfile: failed to execute query for user with %v: %w", userID, result.Error)
+	}
+
+	if result.RowsAffected == 0 {
+		return fmt.Errorf("repo-UpdateUserProfile: user with %v: %w", userID, model.ErrUserNotFound)
+	}
+
+	return nil
+}

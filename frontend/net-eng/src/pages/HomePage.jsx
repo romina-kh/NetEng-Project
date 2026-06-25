@@ -21,7 +21,6 @@ export default function HomePage() {
         <TeamSection />
         <Comments />
         <Collaborate />
-
         <Footer />
     </>
   );

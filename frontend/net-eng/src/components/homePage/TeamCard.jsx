@@ -9,11 +9,11 @@ const TeamCard = ({ image, name, role, links }) => {
       <p style={styles.role}>{role}</p>
 
       <div style={styles.links}>
-        {links.map((link, index) => (
-          <a key={index} href={link.url} style={styles.icon} target="_blank">
-            {link.icon}
-          </a>
-        ))}
+        {/*{links.map((link, index) => (*/}
+        {/*  <a key={index} href={link.url} style={styles.icon} target="_blank">*/}
+        {/*    {link.icon}*/}
+        {/*  </a>*/}
+        {/*))}*/}
       </div>
     </div>
   );

@@ -1,5 +1,8 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
+import Cookies from 'js-cookie';
 import styles from "../styles/profilePages/userprofile.module.css";
+import { useNavigate } from "react-router-dom";
+import Modal from "../components/modal.jsx";
 
 export default function Profile() {
 
@@ -18,6 +21,7 @@ export default function Profile() {
 
   const [theme, setTheme] = useState("blue");
   const [isEditing, setIsEditing] = useState(false);
+  const navigate = useNavigate()
 
   const [showPasswordBox, setShowPasswordBox] = useState(false);
   const [showNotificationBox, setShowNotificationBox] = useState(false);
@@ -34,19 +38,97 @@ export default function Profile() {
     newsletter: false
   });
 
-  const [user, setUser] = useState({
-    name: "عباس قادری",
-    email: "abbas.ghaderi@gmail.com",
-    phone: "09123456789",
-    address: "تهران - شریعتی - پلاک ۲",
-    company: "تک‌یار",
-    avatar: "https://i.pravatar.cc/150?img=7"
-  });
+  const [user, setUser] = useState(null)
+  const [tempUser, setTempUser] = useState(null)
+  const [loading, setLoading] = useState(true)
 
-  const [tempUser, setTempUser] = useState(user);
+  const [modal, setModal] = useState({
+    open: false,
+    title: "",
+    message: ""
+  })
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try{
+
+        const res = await fetch("http://localhost:8080/api/v1/user/me", {
+          method: "GET",
+          credentials: "include"
+        });
+
+        const data = await res.json()
+
+        if (!res.ok){
+          alert(data.error)
+          navigate("/login", {replace: true})
+        }
+
+        setUser(data);
+        setTempUser(data);
+
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+        navigate("/login", {replace: true})
+
+      }
+
+      finally {
+        setLoading(false);
+      }
+
+    };
+
+    fetchUserData();
+  }, []);
+
 
   const handleChange = (e) => {
+    if (!tempUser) return;
     setTempUser({ ...tempUser, [e.target.name]: e.target.value });
+  };
+
+  const handleSaveProfile = async () => {
+    try {
+      setLoading(true);
+
+      const response = await fetch("http://localhost:8080/api/v1/user/edit", {
+        method: "PUT",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          name: tempUser.name,
+          family: tempUser.family,
+          email: tempUser.email,
+          phone: tempUser.phone,
+          address: tempUser.address,
+          avatar: tempUser.avatar,
+          birthday: tempUser.birthday
+        })
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) throw new Error(data.error || "خطا در ذخیره");
+
+      setUser(tempUser);
+      setTempUser(tempUser);
+      setIsEditing(false);
+
+      // alert(data.message || "اطلاعات با موفقیت ذخیره شد");
+      setModal({
+        open: true,
+        title: "پیغام",
+        message: "اطلاعات با موفقیت ذخیره شد"
+      })
+    } catch (err) {
+      console.error(err);
+      alert(err.message || "مشکلی پیش آمد");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handlePasswordChange = (e) => {
@@ -68,20 +150,25 @@ export default function Profile() {
     setShowPasswordBox(false);
   };
 
-  const handleLogout = () => {
-    alert("خروج از حساب انجام شد");
+  const handleLogout = async () => {
+    Cookies.remove('auth_token');
+    setUser(null);
+    setTempUser(null);
+    navigate("/login", {replace: true})
+
   };
+
+  if (loading) return <div>در حال بارگذاری...</div>;
+  if (!user) return null;
 
   return (
     <div className={styles.usercontainer}>
 
       {/* profile card */}
-      <div 
+      <div
         className={styles.usercard}
         style={{ borderColor: `${themes[theme]}` }}
-        
       >
-
         {/* img */}
         <div className={styles.useravatar}>
           <img
@@ -99,18 +186,18 @@ export default function Profile() {
           {isEditing ? (
             <>
               <input name="name" value={tempUser.name} onChange={handleChange} />
+              <input name="family" value={tempUser.family} onChange={handleChange} />
               <input name="email" value={tempUser.email} onChange={handleChange} />
               <input name="phone" value={tempUser.phone} onChange={handleChange} />
               <input name="address" value={tempUser.address} onChange={handleChange} />
-              <input name="company" value={tempUser.company} onChange={handleChange} />
             </>
           ) : (
             <>
               <h2>{user.name}</h2>
-              <p>{user.email} ✉︎</p>
+              <p> {user.family}</p>
+              <p>{user.email} ✉️︎</p>
               <p>{user.phone} 🕻</p>
-              <p>📍 {user.address}</p>
-              <p>🌐 {user.company}</p>
+              <p>{user.address} 📍</p>
             </>
           )}
         </div>
@@ -122,10 +209,7 @@ export default function Profile() {
               <button
                 className={styles.saveBtn}
                 style={{ background: themes[theme] }}
-                onClick={() => {
-                  setUser(tempUser);
-                  setIsEditing(false);
-                }}
+                onClick={handleSaveProfile}
               >
                 ذخیره تغییرات
               </button>
@@ -134,7 +218,7 @@ export default function Profile() {
                 className={styles.cancelBtn}
                 style={{ background: themes[theme] }}
                 onClick={() => {
-                  setTempUser(user);
+                  setTempUser({...user});
                   setIsEditing(false);
                 }}
               >
@@ -146,7 +230,7 @@ export default function Profile() {
               className={styles.editBtn}
               style={{ background: themes[theme] }}
               onClick={() => {
-                setTempUser(user);
+                setTempUser({...user});
                 setIsEditing(true);
               }}
             >
@@ -343,6 +427,12 @@ export default function Profile() {
           </div>
         </div>
       </div>
+      <Modal
+        open={modal.open}
+        title={modal.title}
+        message={modal.message}
+        onClose={() => setModal({...modal, open: false })}
+      />
     </div>
   );
 }

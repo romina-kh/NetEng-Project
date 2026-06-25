@@ -7,14 +7,14 @@ import (
 
 type User struct {
 	Name         string
-	ID           int 		`gorm:"column:user_id"`
+	ID           int `gorm:"column:user_id"`
 	Family       string
 	CreatedAt    time.Time
-	Role		 string
-	Email        string 	`gorm:"uniqueIndex"`
-	PhoneNumber  string 	`gorm:"uniqueIndex"`
-	PasswordHash string 	`gorm:"column:password"`
-	Birthday     string
+	Role         string
+	Email        string `gorm:"uniqueIndex"`
+	PhoneNumber  string `gorm:"uniqueIndex"`
+	PasswordHash string `gorm:"column:password"`
+	Birthday     *time.Time
 	Address      string
 	Wallet       float64
 	Avatar       string
