@@ -22,11 +22,13 @@ func main() {
 	userRepo := repository.NewuserRepo(postgressdb)
 	producRepo := repository.NewProductRepository(postgressdb)
 
-	userService := service.NewUserService(userRepo)
+	authService := service.NewAuthService(userRepo)
 	productService := service.NewProductService(producRepo)
+	userService := service.NewUserService(userRepo)
 
-	userHandler := handler.NewHandler(userService)
+	authHandler := handler.NewHandler(authService)
 	productHandler := handler.NewProductHandler(productService)
+	userHandler := handler.NewUserHandler(userService)
 
-	server.StartServer(userHandler, productHandler)
+	server.StartServer(authHandler, productHandler, userHandler)
 }

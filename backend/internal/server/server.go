@@ -7,8 +7,8 @@ import (
 	"github.com/romina-kh/NetEng-Project/backend/internal/router"
 )
 
-func StartServer(userHandler *handler.Handler, productHandler *handler.ProductHandler) {
-	r := router.SetupRouter(userHandler, productHandler)
+func StartServer(authHandler *handler.Handler, productHandler *handler.ProductHandler, userHandler *handler.UserHandler) {
+	r := router.SetupRouter(authHandler, productHandler, userHandler)
 
 	log.Println("Server started on :8080")
 	if err := r.Run(":8080"); err != nil {

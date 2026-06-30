@@ -3,6 +3,7 @@ import './App.css';
 import HomePage from './pages/HomePage';
 import SignupPage from './pages/SignupPage'; 
 import LoginPage from './pages/LoginPage';
+import ProductPage from './pages/ProductPage'
 import ProfilePage from './pages/UserProfilePage';
 import AdminProfile from './pages/AdminProfilePage';
 import ProductsPage from './pages/ProductsPage';
@@ -15,6 +16,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/login" element={<LoginPage/>}/>
+        <Route path= "/product/:serverID" element={<ProductPage/>} />
         <Route path="/profile" element={<ProfilePage/>}/>
         <Route path="/admin" element={<AdminProfile/>}/>
         <Route path="/products" element={<ProductsPage/>}/>

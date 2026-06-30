@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from "../styles/signupPage/Signup.module.css";
+import { useNavigate } from "react-router-dom";
 
 export default function Signup() {
   const [values, setValues] = useState({
@@ -11,12 +12,13 @@ export default function Signup() {
 
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
+  const navigate = useNavigate()
 
   const handleChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     const newErrors = {};
 
     if (!values.firstName.trim()) {
@@ -39,8 +41,36 @@ export default function Signup() {
     setErrors(newErrors);
 
     if (Object.keys(newErrors).length === 0) {
-      setSubmitted(true);
-      console.log("✅ فرم ارسال شد:", values);
+      try {
+        const res = await fetch("http://localhost:8080/api/v1/auth/signup", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
+          body: JSON.stringify({
+            name        : values.firstName,
+            family      : values.lastName,
+            phone_number       : values.phone,
+            password    : values.password,
+            role        : "user"
+          }),
+        });
+
+        const data = await res.json();
+
+        if (!res.ok) {
+          throw new Error(data.error);
+        }
+
+        setSubmitted(true);
+        alert(data.message)
+        navigate("/", {replace: true})
+
+      } catch (err) {
+        console.error("❌ خطا:", err.message);
+        alert(err.message);
+      }
     }
   };
 

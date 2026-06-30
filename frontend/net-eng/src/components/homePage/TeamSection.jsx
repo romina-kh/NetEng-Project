@@ -5,7 +5,6 @@ import rominapic from "../../assets/profPic/romina.jpg"
 import aryapic from "../../assets/profPic/arya.jpg"
 
 
-// اگر آیکون می‌خوای می‌تونی از react-icons استفاده کنی
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 const TeamSection = () => {

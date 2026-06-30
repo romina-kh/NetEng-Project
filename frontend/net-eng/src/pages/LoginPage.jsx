@@ -1,74 +1,106 @@
 import React, { useState } from "react";
 import styles from "../styles/loginPage/Login.module.css";
+import { useNavigate } from "react-router-dom";
+
 
 export default function Login() {
-  const [values, setValues] = useState({
-    email: "",
-    password: "",
-  });
+    const [values, setValues] = useState({
+        phone: "",
+        password: "",
+    });
 
-  const [errors, setErrors] = useState({});
-  const [submitted, setSubmitted] = useState(false);
+    const [errors, setErrors] = useState({});
+    const [submitted, setSubmitted] = useState(false);
+    const navigate = useNavigate();
 
-  const handleChange = (e) => {
-    setValues({ ...values, [e.target.name]: e.target.value });
-  };
+    const handleChange = (e) => {
+        setValues({ ...values, [e.target.name]: e.target.value });
+    };
 
-  const handleSubmit = () => {
-    const newErrors = {};
+    const handleSubmit = async () => {
+        const newErrors = {};
 
-    if (!values.email.trim()) {
-      newErrors.email = "وارد کردن ایمیل الزامی است!";
-    } else if (!/\S+@\S+\.\S+/.test(values.email)) {
-      newErrors.email = "ایمیل معتبر نیست!";
-    }
+        if (!values.phone.trim()) {
+            newErrors.phone = "وارد کردن تلفن الزامی است!";
+        } else if (!/^09\d{9}$/.test(values.phone)) {
+            newErrors.phone = "شماره تلفن معتبر نیست!";
+        }
 
-    if (!values.password.trim()) {
-      newErrors.password = "وارد کردن رمز عبور الزامی است!";
-    } 
-    
-    setErrors(newErrors);
+        if (!values.password.trim()) {
+            newErrors.password = "وارد کردن رمز عبور الزامی است!";
+        }
 
-    if (Object.keys(newErrors).length === 0) {
-      setSubmitted(true);
-      console.log("🔐 ورود موفق", values);
-    }
-  };
+        setErrors(newErrors);
 
-  return (
-    <div className={styles.container}>
-      <div className={styles.top}></div>
-      <div className={styles.bottom}></div>
+        if (Object.keys(newErrors).length === 0) {
+            try
+            {
+                const res = await fetch("http://localhost:8080/api/v1/auth/login", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type" : "application/json",
+                    },
 
-      <div className={styles.center}>
-        <h2>ورود به تک‌یار</h2>
+                    credentials: "include",
+                    body: JSON.stringify({
+                        identifier: values.phone,
+                        password  : values.password
+                    })
+                });
 
-        <input
-          type="email"
-          name="email"
-          placeholder="ایمیل"
-          value={values.email}
-          onChange={handleChange}
-        />
-        {errors.email && <p className={styles.error}>{errors.email}</p>}
+                const data = await res.json()
 
-        <input
-          type="password"
-          name="password"
-          placeholder="رمز عبور"
-          value={values.password}
-          onChange={handleChange}
-        />
-        {errors.password && <p className={styles.error}>{errors.password}</p>}
+                if (!res.ok){
+                    throw new Error(data.error)
+                }
 
-        <button className={styles.loginBtn} onClick={handleSubmit}>
-          {submitted ? "ورود موفق ✔" : "ورود"}
-        </button>
+                setSubmitted(true);
+                alert(data.message)
+                navigate("/", {replace: true})
+            }
 
-        <p className={styles.link}>
-          ثبت نام نکرده اید؟ <a href="/signup">ثبت‌نام</a>
-        </p>
-      </div>
-    </div>
-  );
+            catch (err)
+            {
+                console.error("❌ خطا:", err.message);
+                alert(err.message);
+            }
+        }
+    };
+
+    return (
+        <div className={styles.container}>
+            <div className={styles.top}></div>
+            <div className={styles.bottom}></div>
+
+            <div className={styles.center}>
+                <h2>ورود به تک‌یار</h2>
+
+                <input
+                    type="phone"
+                    name="phone"
+                    placeholder="شماره تلفن"
+                    value={values.email}
+                    onChange={handleChange}
+                />
+                {errors.email && <p className={styles.error}>{errors.email}</p>}
+
+                <input
+                    type="password"
+                    name="password"
+                    placeholder="رمز عبور"
+                    value={values.password}
+                    onChange={handleChange}
+                />
+                {errors.password && <p className={styles.error}>{errors.password}</p>}
+
+                <button className={styles.loginBtn} onClick={handleSubmit}>
+                    {submitted ? "ورود موفق ✔" : "ورود"}
+                </button>
+
+                <p className={styles.link}>
+                    ثبت نام نکرده اید؟ <a href="/signup">ثبت‌نام</a>
+                </p>
+            </div>
+        </div>
+    );
 }

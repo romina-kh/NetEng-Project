@@ -13,10 +13,10 @@ import (
 )
 
 type Handler struct {
-	service service.UserService
+	service service.AuthService
 }
 
-func NewHandler(service service.UserService) *Handler {
+func NewHandler(service service.AuthService) *Handler {
 	return &Handler{service: service}
 }
 
@@ -33,7 +33,7 @@ func (h *Handler) Signup(c *gin.Context) {
 	user := model.User{
 		Name:        req.Name,
 		Family:      req.Family,
-		Role:		 req.Role,
+		Role:        req.Role,
 		Email:       req.Email,
 		PhoneNumber: req.PhoneNumber,
 		Birthday:    req.Birthday,
@@ -69,8 +69,9 @@ func (h *Handler) Signup(c *gin.Context) {
 		return
 	}
 
+	c.SetCookie("auth_token", token, 3600*24, "/", "", false, false)
+
 	c.JSON(http.StatusCreated, dto.SignupResponse{
-		Token:   token,
 		Message: "signup successfully",
 	})
 }
@@ -86,6 +87,7 @@ func (h *Handler) Login(c *gin.Context) {
 
 	user, err := h.service.Login(c.Request.Context(), req.Identifier, req.Password)
 	if err != nil {
+		log.Printf("Internal Error: %v", err)
 		c.JSON(http.StatusInternalServerError, dto.ErrorResponse{Error: err.Error()})
 		return
 	}
@@ -99,8 +101,9 @@ func (h *Handler) Login(c *gin.Context) {
 		return
 	}
 
+	c.SetCookie("auth_token", token, 3600*24, "/", "", false, false)
+
 	c.JSON(http.StatusOK, dto.LoginResponse{
 		Message: "you are logged in successfully",
-		Token:   token,
 	})
 }

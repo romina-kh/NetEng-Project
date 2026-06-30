@@ -1,9 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../../styles/homePage/navbar.css";
+import Cookies from "js-cookie";
+import { jwtDecode } from "jwt-decode";
 
 function NavBar() {
-  // State to manage the open/close status of the menu
   const [isOpen, setIsOpen] = useState(false);
+  const [user, setUser] = useState(() => {
+    const token = Cookies.get("auth_token");
+    if (token) {
+      try {
+        return jwtDecode(token);
+      } catch (error) {
+        console.error("توکن نامعتبر است", error);
+        return null;
+      }
+    }
+    return null;
+
+  });
 
   // Function to toggle menu
   const toggleMenu = () => {
@@ -34,9 +48,17 @@ function NavBar() {
 
         {/* Links Container: Added logic to toggle 'active' class */}
         <div className={`left-nav ${isOpen ? "active" : ""}`}>
-          <a href="/login">
-            <h3>ورود / ثبت نام</h3>
-          </a>
+          {user ? (
+              <div className="user-profile">
+                <a href="/profile">
+                  <h3> {user.name + " " +user.family_name}</h3>
+                </a>
+              </div>
+          ) : (
+              <a href="/login">
+                <h3>ورود / ثبت نام</h3>
+              </a>
+          )}
           <a href="/products">
             <h3>محصولات</h3>
           </a>

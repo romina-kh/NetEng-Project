@@ -1,16 +1,19 @@
+import { Link } from "react-router-dom";
+
 const ProductCard = ({ product }) => {
+    console.log(product)
   return (
-    <div className="product-card">
-      <img src={`/images/${product.Picture}`} alt={product.Image} />
+    <Link to={`/product/${product.id}`} className="product-card">
+      <img src={`/images/${product.picture}`} alt={product.Image} />
       <div className="card-content">
-        <h3>{product.OS}</h3>
+        <h3>{product.os}</h3>
         <h4>{product.Storage}</h4>
         <p className="price">
-          {product.Price?.toLocaleString()} تومان ماهانه
+          {product.price?.toLocaleString()} تومان ماهانه
         </p>
         <button>افزودن به سبد خرید</button>
       </div>
-    </div>
+    </Link>
   );
 };
 
